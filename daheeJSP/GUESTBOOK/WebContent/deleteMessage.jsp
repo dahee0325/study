@@ -1,5 +1,5 @@
-<%@page import="guestbook.exception.InvalidMessagePasswordException"%>
 <%@page import="guestbook.exception.MessageNotFoundException"%>
+<%@page import="guestbook.exception.InvalidMessagePasswordException"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="guestbook.service.DeleteMessageService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"

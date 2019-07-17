@@ -6,13 +6,131 @@
 </head>
 <link href="css/index.css" rel="stylesheet" type="text/css">
 <style>
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    
+    #logo a{
+        color: aliceblue
+    }
+    
+    #content {
+        text-align: center;
+        width: 700px;
+        margin: auto;
+    }
+    
+    #content_title {
+        padding: 50px;
+    }
+    
+    #cform_wrap {
+        display: inline-block;
+        text-align: left;
+        padding: 30px;
+        width: 400px;
+    }
+    
+    .c_input, .c_input_t, #c_btn {
+        background-color: transparent;
+        border : 0;
+        border-bottom: solid 1px;
+        width: 100%;
+        padding: 10px;
+    }
+    
+    .c_input_t, #c_btn {
+        border: solid 1px;
+    }
+    
+    #c_btn {
+        margin: 10px 0 0 0;
+        width: 105%
+    }
+    
+    #cform_wrap span {
+        display: inline-block;
+        padding: 10px 0;
+    }
+    
+    #header span {
+        margin: 5px 0 0 0;
+    }
+    
+    #list_table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    #list_table tr {
+        border-bottom: solid 1px;
+    }
+    
+    #list_table tr:nth-child(1) {
+        font-weight: bold;
+    }
+    
+    #list_table td:nth-child(2) {
+        text-align: left;
+        padding: 0 0 0 15px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow : hidden; 
+        display : inline-block;
+        line-height: 50px;
+    }
+    
+    #list_table tr:nth-child(1) > td:nth-child(2){
+        text-align: center;
+    }
+    
+    #list_table td {
+        padding: 10px;
+        text-align: center;
+    }
+
+    
+    #list_table td a:hover {
+        color: #b1486a;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+    
+    #list_table td:nth-child(2) {
+        width: 300px;
+    }
+
+    #list_wrap > a {
+        color: gray;
+        display: inline-block;
+        padding: 20px 0px;
+    }
+    
+    #m {
+        text-align: right;
+        padding: 0 0 30px 0;
+    }
+    
+    #m a:hover {
+        color: #de87a4;
+        font-weight: bold;
+    }
+    
+    .m_btn {
+        display: inline-block;
+        width: 30%;
+        line-height: 40px;
+        border: solid 1px;
+        margin: 10px;
+    }
 </style>
 <body>
    <div id="wrap">
     <div id="main_wrap">
         <div id="top">
             <span><a href="#">로그아웃</a> | <a href="#">내 정보</a></span>
-            <h1 id="logo">DATE SHARE</h1>
+            <h1 id="logo"><a href="#">DATE SHARE</a></h1>
         </div>
         <div id="nav">
             <ul>
@@ -23,7 +141,34 @@
             </ul>  
         </div>
         <div id="content">
-            
+           <div id="content_title">
+					<h2>MY MESSAGE</h2>
+				</div>
+				<p id="m">
+					<a href="#">쪽지보내기</a>
+				</p>
+				<div id="list_wrap">
+					<table id="list_table">
+						<tr>
+							<td>No</td>
+							<td>제목</td>
+							<td>보낸사람</td>
+							<td>날짜</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>ddddddddddd</td>
+							<td>dd</td>
+							<td>1111</td>
+							<td><a
+								href="confirmDeletion.jsp?messageId=<%=message.getM_num()%>">삭제하기</a></td>
+						</tr>
+					</table>
+					<a href="messageList.jsp?page=<%=i%>"> [ 1 ]
+					</a>
+				</div>
+        <a class="m_btn">메세지함가기</a><a class="m_btn">쪽지 더 보내기</a>
         </div>
         <div id="footer">
             <span>4조</span>
