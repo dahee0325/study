@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Form Test</title>
+
+</head>
+
+<body>
+    <!-- submit을 클릭하면  form 에 저장한 action으로 이동하는데 
+   script에서 제어하는 방법 -->
+    <form id="login_form" action="http://www.naver.com">
+       <!-- required : 유효성 검사를 해주는 속성 -->
+        아이디 <input type="text" id="uId" required><br>
+        이메일 <input type="email" id="uE" required><br>
+        비밀번호 <input type="password" id="uPw" required><br>
+        이용약관 동의 <input type="checkbox" id="chk"><br/>
+        <input type="submit" value="로그인">
+    </form>
+
+    <script>
+        window.onload = function() {
+
+            var loginform = document.getElementById('login_form');
+            loginform.onsubmit = function() {
+
+                var uId = document.getElementById('uId');
+                var uPw = document.getElementById('uPw');
+                var chk = document.getElementById('chk');
+
+                //alert(chk.checked);
+                
+                if(!chk.checked) {
+                   alert('이용약관에 동의해주세요');
+                    return false;
+                }
+                
+                //아이디에 아무것도 입력되지않았다면
+                if (uId.value.length < 1) {
+                    alert('아이디를 입력해주세요.');
+                    uId.focus;
+                    return false;
+                }
+                if (uPw.value.length < 1) {
+                    alert('비밀번호를 입력해주세요.');
+                    uPw.focus;
+                    return false;
+
+                }
+            };
+
+        };
+    </script>
+</body>
+
+</html>

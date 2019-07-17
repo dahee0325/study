@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>성적관리</title>
+    <script>
+        //학생정보를 저장하는 배열 생성
+        var students = [];
+        
+        //students 배열에 학생정보를 저장
+        students.push({name : '홍길동', kor:87, met:90, eng:70});
+        students.push({name : '홍길동1', kor:61, met:50, eng:80});
+        students.push({name : '홍길동2', kor:48, met:67, eng:88});
+        students.push({name : '홍길동3', kor:37, met:30, eng:97});
+        students.push({name : '홍길동4', kor:94, met:74, eng:16});
+        students.push({name : '홍길동5', kor:62, met:21, eng:67});
+        students.push({name : '홍길동6', kor:45, met:99, eng:43});
+        students.push({name : '홍길동7', kor:13, met:12, eng:61});
+        students.push({name : '홍길동8', kor:28, met:45, eng:43});
+        students.push({name : '홍길동9', kor:44, met:77, eng:74});
+    
+        
+        for(var k in students) {
+            
+            //총점을 구하는 메서드정의, 추가
+            students[k].getSum = function() {
+                return this.kor + this.met + this.eng; 
+            };
+        
+            //평균을 구하는 메서드정의, 추가
+            students[k].getAvg = function() {
+                return this.getSum()/3; 
+            };
+        }
+        
+        var output = ' 이름    총점            평균\n';
+        
+        for(var i=0; i<students.length; i++) {
+            output += students[i].name + '   ' + students[i].getSum() + '   '+ students[i].getAvg() +'\n';
+        }
+        
+        alert(output);
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

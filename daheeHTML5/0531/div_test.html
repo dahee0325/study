@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<htm>
+<head>
+    <meta charset="utf-8">
+    <title>공간분할 테스트</title>
+    <style>
+        #div1, span {
+            width: 300px;
+            height: 300px;
+        }
+        body {
+            width: 20%;
+            background-color: beige;
+        }
+    </style>
+</head>
+<body>
+    <!-- div는 블럭속성을 가지고 있기 때문에 다음 태그들을 무조건 내림 (처음부터끝까지가 div의 영역)-->
+    <!-- div를 감싸고 있는 영역이 div의 영역-->
+    <div id="div1" style="background-color: aqua;">
+        하이
+    </div>
+    <div style="background-color: aquamarine;">
+        안녕
+    </div>
+    <span style="background-color: blueviolet;">
+        하이
+    </span>
+    <span style="background-color: crimson;">
+        안녕
+    </span>
+</body>
+</htm>

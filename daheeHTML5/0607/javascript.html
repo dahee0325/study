@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Javascrip First</title>
+    <script>
+        /* 문자열 표현 : '', "" 가능 */
+        /* 주로 ''를 쓰는이유 : html을 동적으로 만드는 경우 ""로 인해
+           자바스크립트문이 끊길 수 있기 때문                      */
+        /* 사용자에게 알림을 주는 기능 : 창을띄어줌 */
+        /* img태그를 사용하여 여기서 정의해놓으면 html에서는 따로 정의를 하지않았는데
+        img가 출력된다. */
+        alert('하이\n<img src="/0605/img/bansns.jpg">');
+        
+        /* 변수 정의  : var 변수명*/
+        var hi = '안녕'
+        
+        var pi = 3.141592;
+        var r = 10;
+        
+        /* 변수 출력 가능 */
+        alert(hi);
+        
+        /* 연산의 결과 출력 가능 */
+        alert('원의 둘레는 : ' + pi*2*r);
+        
+        
+        /* 변수가 정의되지 않는 상태 : undefined */
+        var v;//undefined
+        alert(v);
+        
+        var num = 10;//number
+        var str = 'Hello';//String
+        var boolCheck = true;//bool
+        var functionType = function() {};//function
+        var objType = {};//object
+        
+        /*
+        alert(num);
+        alert(str);
+        alert(boolCheck);
+        alert(functionType);
+        alert(objType);
+        */
+        
+        //변수 num의 자료형 타입을 알려줌
+        alert(typeof(num));
+        
+        
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

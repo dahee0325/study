@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        //문서객체 케스팅 : TAG를 문서객체로 만드는것
+
+        window.onload = function() {
+
+            //캐스팅
+            var clock = document.getElementById('clock');
+            
+            //1초마다 갱신하여 시간을 나타냄
+            setInterval(function() {
+                clock.innerHTML = new Date();
+            },1000);
+            //현재시간 나타냄
+            //clock.innerHTML = new Date();
+            
+            var h1 = document.getElementById('msg');
+
+            var div1 = document.querySelector('#text');
+            div1.innerHTML = '안녕하세요';
+            div1.style.color = 'yellow';
+            div1.style.backgroundColor = "black";
+
+            var innerhtml = h1.innerHTML;
+
+            //alert(typeof(h1));
+            //alert(innerhtml);
+
+            //body에 있는 h1을 밑에 구문으로 변경함
+            h1.innerHTML = '<span style="color:red">새로운 엘리먼트</span>';
+
+            var p1 = document.querySelector('.title');
+            p1.innerHTML = '제목입니다. <i>내용이 들어갑니다.</i>';
+            p1.style.backgroundColor = 'gray';
+            p1.style.color = "white";
+
+            //태그 삭제
+            //1. 삭제 대상 캐스팅
+            //2. 삭제대상의 부모태그를 캐스팅
+            //3. 부모태그 객체 removeChild(삭제대상 객체)
+
+            //결과값은 true / false 로 나온다.
+            if (confirm('삭제하시겠습니까?')) {
+                var r = document.querySelector('#remove');
+                document.body.removeChild(r);
+            }
+
+        };
+    </script>
+</head>
+
+<body>
+   <h1 id="clock"></h1>
+    <h1 id="msg">ㅎㅇ</h1>
+    <div id="text"></div>
+    <p class="title"></p>
+    <h1 id="remove">이태그는 삭제</h1>
+</body></html>

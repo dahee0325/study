@@ -1,0 +1,181 @@
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        body {
+            background-color: #fffcb0;
+            border: 10px solid #fffcb0;
+        }
+        
+        #wrap {
+            width: 1080px;
+            margin: auto;
+            background-color: white;
+            box-shadow: 3px 3px 8px 3px gray;
+        }
+
+        #header {
+            padding: 50px;
+            background-image: url(img/duck.gif);
+            background-position: bottom right;
+            background-repeat: no-repeat;
+            background-size: 150px;
+        }
+        
+        #header>p {
+            display: inline-block;
+            padding-top: 10px;
+            padding-left: 5px;
+            color: grey;
+            font-family: 'Poor Story';
+            font-size: 24px;
+        }
+        
+        #header>h1 {
+            text-shadow: 0px 0px 20px #fff500;
+            font-family: 'Kaushan Script', cursive;
+        }
+        
+        #nav {
+            margin: 15px;
+            border-bottom: 1px solid #d8d8d8;
+            border-top: 1px solid #d8d8d8;
+            height: 50px;
+        }
+        
+        #menu {
+            width: 70%;
+        }
+        
+        #ul {
+            position: absolute;
+            display: block;
+            list-style: none;
+            overflow: hidden;
+            color: black;
+        }
+        
+        #ul>li {
+            display: block;
+            float: left;
+        }
+        
+        #ul>li>a {
+            color: black;
+            display: block;
+            width: 150px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+             font-family: 'Josefin Sans'
+        }
+        
+        #ul>li>a:hover {
+            background-color: #fffcb0;
+            font-weight: bold;
+            text-shadow: 0px 0px 20px #555555;
+        }
+        
+        #search {
+            display: inline;
+            line-height: 50px;
+            float: right;
+        }
+        
+        #search>input[type=text] {
+            border: 1px solid #d8d8d8;
+            border-radius: 15px 0px 0px 15px;
+            height: 25px;
+            padding-left: 10px;
+            width: 140px;
+            
+        }
+        
+        #search>input[type=submit] {
+            display: inline;
+            border: 1px solid #d8d8d8;
+            border-radius: 0px 15px 15px 0px;
+            height: 27px;
+            width: 50px;
+            text-align: center;
+            margin-left: -10px;
+            margin-right: 10px;
+            background-color: #fff79c;
+            font-family: 'Poor Story';
+            vertical-align: middle;
+        }
+        
+        #content {
+            padding: 20px;
+        }
+        
+        #post {
+            float: left;
+            width: 70%;
+            padding: 10px;
+            
+        }
+        
+        #category {
+            float: right;
+            width: 25%;
+            height: 500px;
+        }
+        
+        .img {
+            width: 430px;
+            height: 280px;
+            background-color: #ede9b6;
+            font-size: 34px;
+            text-align: center;
+            line-height: 280px;
+            color: #717171;
+        }
+
+        
+        #post>p {
+            margin-top: 15px;
+            margin-bottom: 15px;
+            font-family: 'Josefin Sans';
+        }
+        
+        #post>h2{
+            font-weight: lighter;
+            font-family: 'Poor Story';
+        }
+
+        #category>div {
+            padding: 20px;
+            font-family: 'Poor Story';
+            font-size: 18px;
+        }
+        
+        #category>div>ul>li {
+            list-style: none;
+            padding-left: 8px;
+            padding-top: 5px;
+        }
+        
+        #category>div>ul>li>a {
+            color: #646464;
+            font-size: 16px;
+        }
+        
+        #footer {
+            clear: both;
+            padding-left: 30px;
+            padding-bottom: 50px;
+        }
+        
+        hr {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        
+        

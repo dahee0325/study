@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트의 이벤트 처리</title>
+    <script>
+    </script>
+</head>
+
+<body>   
+    <h1 id="title">자바스크립트의 이벤트 처리</h1>
+    <input type="text" id="msg" value="test" placeholder="메시지를 입력해주세요">
+
+    <button id="btn">텍스트 변경</button>
+    
+    <input type="button" id="btn00" value="버튼-인라인방식 이벤트 처리" ondblclick="f1();">
+    
+    <input type="button" id="delBtn" value="삭제" onclick="delMsg(1);">
+    <h2 id="text"></h2>
+
+    <script>
+        
+        function delMsg(index) {
+            var result = confirm('정말 삭제하시겠습니까?');
+            
+            if(result) {
+                alert(index + '번 메시지를 삭제합니다.');
+            }
+        }
+        
+        function f1() {
+            var message = '안녕하세요.';
+            alert(message);
+        }
+        
+        
+        
+        //이벤트 핸들러 or 리스너?
+        window.onload = function() {
+
+            var cnt = 0;
+
+            //버튼 캐스팅(문서객체로 변환)
+            var btn = document.getElementById('btn');
+            var title = document.getElementById('title');
+
+
+
+            //이벤트 적용 : 버튼 이벤트 속성에 함수로 등록하는것
+            //btn 이라는 객체에 onclick 이벤트가 나타난다면
+            btn.onclick = function(e) {
+                //이 함수가 실행된다.
+                //alert('클릭!');
+                
+                var title = document.getElementById('title');
+                //alert(title.innerHTML);
+                //title이 가지고있는 값에 요소 추가
+                
+                /*
+                var msgString = document.getElementById('msg').value;
+                title.innerHTML += '<br> ' + msgString + cnt++;
+                */
+                
+                var msgString = document.getElementById('msg').value;
+                title.innerHTML += '<br> ' + msgString + cnt +
+                    '<input type="button" id="delBtn" value="삭제' +cnt + '" onclick="delMsg('+cnt++ +');">';
+                
+                    
+                //focus 이벤트를 강제로 실행시킴 (버튼클릭 후에도 inputMsg에 포커스가 가도록)
+                inputMsg.focus();
+                
+                //전달받은 매개변수인 e 가 값이 안들어있다면
+                var event = e || window.event;
+                var text = document.getElementById('text');
+                
+                //event가 가지고 있는 객체 요소들 확인
+                for(var key in event){
+                    text.innerHTML += key + ' : ' + event[key] + '<br>';
+                }
+            };
+            
+            var inputMsg = document.getElementById('msg');
+            
+            //커서가 이안에 들어갈때
+            inputMsg.onfocus = function() {
+                //var msg = this.value;
+                //alert('input focus Event : this.value = '+msg);
+                //inputMsg.onfocus = null;
+                
+                //this는 이벤트가 발생한 객체를 가르킨다.
+                this.value='';
+                this.style.border = '3px solid red';
+            };
+
+        };
+    </script>
+</body>
+
+</html>

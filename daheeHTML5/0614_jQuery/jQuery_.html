@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 태그가 없는 상태로 생성하는 것 -->
+    <title>동적 문서객체 생성</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script>
+        //ready() : callback 함수를 가짐(함수 조건에 만족했을때 실행을 해준다는 것)
+        $(document).ready(function() {
+
+            /*//동적 문서 객체 생성
+            //h1 태그의 문서 객체 생성
+            //appendTo('body') : appendTo('대상') - body에 앞에 있는 새로운 객체를 대상(body)뒤에 추가해준다.
+            //append 를 사용한다면 앞의 h1을 가르키는 것
+            //appendTo(대상) 메서드를 이용해서 객체를 추가 -> 화면에 노출
+            $('<h1></h1>').html('<i>hello</i>').appendTo('body');
+            $('<h1></h1>').text('<i>hello</i>').appendTo('body');
+            $('<p><b>hello</b></p>').appendTo('body');
+            
+            //객체를 만든 후 속성입력하여 생성
+            $('<img>').attr({
+                src : '../0531/mini1.jpg',
+                width : 150
+            }).appendTo('body');
+            
+            //객체 만드는 시점에 속성을 바로 넣어서 생성
+            $('<img>',{
+                //img 속성입력가능하다
+                src : '../0531/mini2.jpg',
+                width : 150,
+            }).appendTo('body');
+            
+            */
+            /*var h1 = '<h1> 새로운 h1 tag 01 </h1>';
+            var h2 = '<h1> 새로운 h1 tag 02 </h1>';
+            var h3 = '<h1> 새로운 h1 tag 03 </h1>';
+            
+            //여러개의 태그들을 필요한 순서에맞게 구성이 가능하다.
+            $('body').append(h1,h2,h3,h2,h1);
+            */
+
+            /*//배열 생성
+            var arr = [];
+            //배열에 요소 추가
+            arr.push({name : 'NAVER', url : 'http://www.naver.com'});
+            arr.push({name : 'DAUM', url : 'http://www.daum.net'});
+            arr.push({name : 'FACEBOOK', url : 'http://www.facebook.com'});
+            
+            
+            //div 안에 추가
+            //body는 하나여서 돌아가면서 추가가 불가능해서 div를 사용함
+            $('div').append(function(index){
+                
+                //html 구조를 가진 String 문자열이 function의 결과로 나와야지 화면에 처리된다.
+                
+                var output = '';
+                
+                output += '<a href="' + arr[index].url +'">'+ arr[index].name +'</a>';
+                
+                return output;
+                
+            });*/
+
+
+            setInterval(function() {
+                
+                //첫번째 img태그를 맨 뒤로 이동
+                //기존객체를 맨뒤로 이동하는 기능도 가능하다
+                $('img').first().appendTo('div');
+                
+            }, 3000);
+
+
+        });
+    </script>
+</head>
+
+<body>
+    <!--<div></div>
+    <div></div>
+    <div></div>-->
+    <div style="width: 200px; height: 200px; border: 1px solid black; overflow: hidden">
+        <img src="../0531/mini1.jpg" width="200">
+        <img src="../0531/mini2.jpg" width="200" height="200">
+        <img src="../0604/img/duck.png" width="200">
+        <img src="../0604/img/mickey.png" width="200">
+    </div>
+
+</body>
+
+</html>

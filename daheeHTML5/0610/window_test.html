@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Window 객체</title>
+    <script>
+        //html, head, body 틀을 만들어서 팝업을 생성해준다.
+        //window.open('');
+
+        //'child' 라는 이름을 주지않으면 새로운 탭으로 창을 띄운다.
+        //window.open('http://www.naver.com','child','width=600, height=300');
+
+        //가로 600 세로 300이라는 팝업창을 띄움
+        //window.open('http://www.naver.com','child','width=600, height=300');
+
+        //비어있는 새로운 팝업창을 듸움
+        //var child = window.open('','child','width=500, height=200');
+
+        //self.close() self = 자신 , close() 창을 닫는다.
+        //child.document.write('<h1 onclick="self.close()">from parent window</h1>')
+
+        /*
+        function moveUrl() {
+            alert(location.href);
+            location.href='http://www.naver.com';
+        }
+        */
+        window.onload = function() {
+            //이미지 태그 생성
+            var img = document.createElement('img');
+            img.src = '../0604/img/mickey.png';
+            img.width = 100;
+
+
+            //태그 생성 : createElement('생성할 태그이름')
+            var header1 = document.createElement('h1');
+            var header2 = document.createElement('h1');
+            //태그에 넣을 텍스트 생성
+            var text1 = document.createTextNode('hihi~');
+            var text2 = document.createTextNode('bye!');
+            //태그에 텍스트를 삽입
+            header1.appendChild(text1);
+            header2.appendChild(text2);
+            //새로만든 태그를 body 태그에 삽입
+            document.body.appendChild(header1);
+            document.getElementById('msg').appendChild(img);
+            document.getElementById('msg').appendChild(header2);
+        };
+    </script>
+</head>
+
+<body>
+
+    <!-- 네이버라는 h1을 클릭했을때 moveUrl 이라는 메서드를 호출해줌-->
+    <!--
+    <h1 style="cursor: pointer; background-color: beige;" onclick="moveUrl();">네이버</h1>
+     
+     
+    <h1>h1</h1>
+    <script>alert(2)</script>
+    <h1>h2</h1>
+    <script>alert(3)</script>
+    <h1>h3</h1>
+    <script>alert(4)</script>
+    <h1>h4</h1>
+    -->
+
+    <h1 id="msg">h1</h1>
+</body>
+
+</html>

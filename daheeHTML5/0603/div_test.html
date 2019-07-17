@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title></title>
+    <meta charset="utf-8">
+    
+    <style>
+        /* id 선택자 */
+        #header {
+            background-color: aqua;
+            margin: 0 auto;
+            width: 500px;
+        }
+        
+        #wrap {
+            background-color: aquamarine;
+            border: 3px solid red;
+            /* 콘텐츠가 가지고 있는 border에서 콘텐츠 사이의 여백 */
+            padding: 10px 30px 10px 30px;/* 위 오른쪽 아래 왼쪽 순서*/
+            
+            /* header랑 같은 500px이지만 더 큰이유는 패딩도 블럭값을 갖기 때문임 */
+            /* 똑같은 크기로 보이려면 왼쪽오른쪽을 뺀 크기로 만들어줘야함 : 440px로 정의해야함. */
+            width: 500px;
+            /* 
+               콘텐츠가 가지고 있는 border의 밖의 여백 
+               중앙에 정렬할때 많이 사용됨 auto를 이용하여
+            */
+            margin: 10px auto;/*상하 : 10px 좌우: auto , auto는 좌우 공평하게 줌 (auto는 좌우에만 옴)*/
+        }
+        
+        #content {
+            background-color: yellow;
+            width: 300px;
+            /*  */
+            float: left;
+        }
+        
+        #aside {
+            background-color: rebeccapurple;
+        }
+        
+        #footer {
+            background-color: blue;
+        }
+        
+        /* 클래스 선택자 */
+        .select {
+            color: red;
+        }
+        
+        .text_bold {
+            /* 폰트의 무게 : 폰트의 두께 조정을 해줌 - 두껍게가능, 원래 폰트 두께보다 얇게 가능*/
+            font-weight: bold;
+        }
+        
+        .text_itelic {
+            /* 폰트 모양 지정 : italic - 기울기 */
+            font-style: italic;
+        }
+        
+        /* li중에 text_bold 라는 클래스를 가진 요소들만 선택해서 스타일지정 */
+        li.text_bold {
+            background-color: aqua;
+        }
+        
+        
+        /* 속성 선택자 */
+        /* 선택자[속성]*/
+        /* input선택자의 type 속성에 text라는 속성을 가지고있다면 */
+        input[type=text], [type=password] {
+            background-color: yellow;
+            /* 두께 모양 색깔 */
+            border: 0px;
+            border-bottom: 2px  solid grey;
+        }
+        
+        input[type=password] {
+            background-color: orange;
+        }
+        
+        input[type=checkbox] {
+            width: 30px;
+            height: 30px;
+        }
+        
+        input[type=button] {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            border: 3px solid #8990ea;
+            border-radius: 10px;
+            font-size: 17px;
+            font-weight: bold;
+            box-shadow: 5px 5px 5px #ccb7e0;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        Header영역
+    </div>
+    <div id="wrap">
+        <div id="content">
+            Content 영역
+        </div>
+        <div id="aside">
+            aside 영역
+        </div>
+    </div>
+    <div id="footer">
+        Footer영역
+    </div>
+    
+    <h3 class="text_itelic">과일 리스트</h3>
+    <ul>
+        <li class="select text_bold">사과</li>
+        <li>파인애플</li>
+        <li class="select text_itelic">바나나</li>
+        <li class="text_bold">키위</li>
+    </ul>
+    
+    
+    <input type="text"> <br>
+    <input type="password"> <br>
+    <input type="button" value="버튼"> <br>
+    <input type="checkbox">
+    
+    
+</body>
+</html>

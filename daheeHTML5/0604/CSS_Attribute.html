@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 속성 테스트</title>
+    <style>
+        
+        body {
+            background-color: #574b90;
+            background-image: url(img/duck.png);
+            background-size: 20%;
+            background-repeat: no-repeat;
+            background-position: 90% 90%;
+            /*스크롤을 내려도 위치 고정시켜줌*/
+            background-attachment: fixed;
+            
+        }
+        
+        /* 첫번째 h1 태그 */
+        h1:nth-child(1) {
+            
+            font-size: 150%;
+            
+            /* rgb(red,green,blue) */
+            background-color: rgb(255, 0, 0);
+            color: rgb(255,255,255);
+            
+        }
+        
+        /* em : 배수 / 1.5em = 1.5배수 */
+        h1:nth-child(2) {
+            
+            font-size: 1.5em;
+            
+            /* 마지막숫자는 투명도 0.5 : 반투명 - 1에서부터 낮을수록 투명도가 높아진다. */
+            background-color: rgba(255, 255, 255, 0.5);
+            
+        }
+        
+        /* 기본 폰트 사이즈는 16px; 1.5배한 사이즈는 24px; */
+        h1:nth-child(3) {
+            
+            font-size: 24px;
+            
+            /* #레드그린블루 : ff - 255표현 */
+            background-color: #000000;
+            color: #FFFFFF;
+            
+        }
+        
+        #header {
+            height: 200px;
+            background-color: #303952;
+            width: 500px;
+            /*background-size: cover;
+            /* 상대경로 사용 */
+            /*
+            background-image: url(img/img1.jpg);
+            */
+        }
+        
+        #loginbox {
+            height: 300px;
+            
+            /* 표현할 수 있는 화면의 50%만 보이게 해라 */
+            width: 450px;
+            background-color:#546de5; 
+            
+            /* border와 padding, margin 사용시 원래의 콘텐츠 사이즈보다 표현되는 사이즈가 달라질 수 있으니 주의★ */
+            border: 5px solid #f5cd79;
+            padding: 10px;
+            margin: 10px;
+            /* 절대경로 사용 */
+            background-image: url(/0604/img/mickey.png);
+            background-size: 50%;
+            background-repeat: no-repeat;
+            
+            /* x축 y축 을 퍼센트로 지정하여 미세한 위치조절 가능*/
+            background-position: 70% 70%;
+            /*background-position: bottom right;*/
+        }
+        
+        #loginbox > span, #loginbox > div {
+            border: 1px solid #333333;
+            height: 50px;
+            width: 80px;
+        }
+        
+        /* block 속성인 div를 span과 같은 inline속성으로 만들음
+            inline속성은 높이값을 갖지않고 콘텐츠 높이만큼만 가진다.
+            inline-block은 높이와 넓이 값을 가질 수 있다.        */
+        #loginbox > div {
+            display: inline-block;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    
+    <!-- 예제 1 -->
+    <h1>CSS-00</h1>
+    <h1>CSS-00</h1>
+    <h1>CSS-00</h1>
+    <h1>CSS-00</h1>
+    <h1>CSS-00</h1>
+    <h1>CSS-00</h1>
+    <h1>CSS-00</h1>
+    <h1>CSS-00</h1>
+    <h1>CSS-00</h1>
+    <h1>CSS-00</h1>
+    <h1>CSS-00</h1>
+    <h1>CSS-00</h1>
+    <h1>CSS-00</h1>
+    <h1>CSS-00</h1>
+    <h1>CSS-00</h1>
+    <h1>CSS-00</h1>
+    <h1>CSS-00</h1>
+    <h1>CSS-00</h1>
+    
+    <!-- 예제 2 -->
+    <div id="header">
+        <h1>배경이미지 처리를 하고있습니다.</h1>
+    </div>
+    <div id="loginbox">
+        <span>로그인</span>
+        <div>입력</div>
+        <span>완료</span>
+    </div>
+    
+</body>
+</html>

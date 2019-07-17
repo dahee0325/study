@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="css/member.css" type="text/css">
+    <meta charset="UTF-8">
+    <title>회원관리</title>
+    <style>
+    </style>
+</head>
+
+<!--
+    1. 사용자 정보 입력받기 위한 form 구성 - html
+    2. input - value 값받기 : 캐스팅, value 속성 사용하여 값가져옴
+    3. 생성자 함수를 이용 -> 객체생성
+    
+    데이터 입력 영역 시작
+-->
+
+<body>
+
+    <div id="main_wrap">
+        <h1 class="title">MEMBER MANAGER</h1>
+        <hr>
+        <div class="regBox">
+            <h3>회원 등록</h3>
+            <form id="regForm" method="post">
+                <table>
+                    <tr>
+                        <td>
+                            <!--<label for="userId">아이디(이메일)</label>-->
+                            <input type="text" id="userId" name="userId" class="input" placeholder="아이디 or 이메일">
+                        </td>
+                        <td>
+                            <!--<label for="userPw">비밀번호</label>-->
+                            <input type="text" id="userPw" name="userPw" class="input" placeholder="비밀번호">
+                        </td>
+                        <td>
+                            <!--<label for="userName">이름</label>-->
+                            <input type="text" id="userName" name="userName" class="input" placeholder="이름">
+                        </td>
+                        <td>
+                            <input type="submit" value="등록" name="userId" class="input">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+
+            <script src="javascript/member.js">
+            </script>
+        </div>
+
+        <!-- 데이터 입력 영역 끝 -->
+
+        <!-- 회원 리스트 영역 시작 -->
+
+        <hr>
+        <h3>회원 리스트</h3>
+        <div id="memberlist">
+            <table>
+                <thead>
+                    <tr>
+                        <td>순번(index)</td>
+                        <td>아이디(이메일)</td>
+                        <td>비밀번호</td>
+                        <td>이름</td>
+                        <td>관리</td>
+                    </tr>
+                </thead>
+                <tbody id="listTable">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- 회원 리스트 영역 끝 -->
+
+    <!-- 회원 정보수정 영역 시작 -->
+    <div id="editBox">
+        <h3>회원 정보수정 <a id="close">닫기</a></h3>
+        <form id="editForm" method="post">
+            <table>
+                <tr>
+                    <td>아이디</td>
+                    <td>
+                        <!--<label for="userId">아이디(이메일)</label>-->
+                        <input type="text" id="editId" name="userId" class="input" placeholder="아이디 or 이메일">
+                    </td>
+                </tr>
+                <tr>
+                    <td>비밀번호</td>
+                    <td>
+                        <!--<label for="userPw">비밀번호</label>-->
+                        <input type="password" id="editPw" name="userPw" class="input" placeholder="비밀번호">
+                    </td>
+                </tr>
+                <tr>
+                    <td>이름</td>
+                    <td>
+                        <!--<label for="userName">이름</label>-->
+                        <input type="text" id="editName" name="userName" class="input" placeholder="이름">
+                        <input type="hidden" id="editIndex">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="수정" name="userId" class="input">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <!-- 회원 정보수정 영역 끝 -->
+
+</body>
+
+</html>

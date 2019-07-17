@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>자손 후손 동위</title>
+        <style>
+            
+            #header h1 {
+                color: red;
+            }
+            
+            #content h1{
+                color: #0e0ece;
+            }
+            
+            #header > h1 {
+                background-color: aquamarine;
+            }
+            
+            #content > h1 {
+                background-color: aqua;
+            }
+            
+            /* table 밑에 tr을 찾아 그 후손 th를 찾음 */
+            table tr > th {
+                color: brown; 
+            }
+            
+            table > tr > th {
+                color: aqua; 
+            }
+            
+            /* 동일한위치에 있는 것들 중 */
+            /* h1 뒤에있는 모든 h2 */
+            h1~h2 {
+                color: crimson;
+            }
+            
+            /* h1 바로 뒤에 있는 h2 하나 */
+            h1+h2 {
+                color: chartreuse;
+            }
+            
+            /* 마우스가 올라갔을때 어떤 처리를 할지 지정 */
+            /* 태그가 가지고 있는 영역이 이벤트 처리 영역이다. */
+            h1:hover {
+                color: white;
+                background-color: black;
+            }
+            
+            span:hover {
+                color: white;
+                background-color: blueviolet;
+            }
+            
+            h1+h2:hover {
+                color: white;
+                background-color: orange;
+            }
+            
+            /* 클릭하고 있을때 일어날 이벤트 정의 */
+            h1~h2:active {
+                
+                color: aqua;
+                background-color: black;
+            }
+            
+            /* 사용불가능한 input에 대한 스타일적용 */
+            input:disabled {
+                background-color: blueviolet;
+            }
+            
+            /* 커서가 들어갔을때의 스타일 적용 */
+            input:focus {
+                background-color: deeppink;
+            }
+            
+            /*-- 체크에 따라 메뉴가 보이게 안보이게 설정 */
+            #menu {
+                display: none;
+            }
+            
+            /* 체크박스가 체크된 상태이고, 그 체크박스의 바로뒤 div까지가 범위 */
+            input[type=checkbox]:checked + div#menu {
+                display: block;
+            }
+            
+            /* label에 마우스가 올라가면 커서모양이 바뀜 (손가락모양으로) */
+            label {
+                cursor: pointer;
+            }
+            
+            label:hover {
+                background-color: black;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="header">  
+            <h1>타이틀1</h1>
+            <div>
+                <h1>타이틀2</h1>
+            </div>
+            <h1>안녕</h1>
+        </div>
+        <div id="content">
+            <h1>타이틀3</h1>
+            <p>내용</p>
+        </div>
+        
+        <table border="1">
+            <tr>
+               <!--th 는 제목요소로 처리(굵게 표시된다)-->
+                <th>이름</th>
+                <th>주소</th>
+            </tr>
+            <tr>
+                <td>유영진</td>
+                <td>서울특별시 서초구</td>
+            </tr>
+        </table>
+        
+        <!-- 동위 선택자 예제-->
+        <h1>Header - 1</h1>
+        <h2>Header - 2</h2>
+        <h2>Header - 2</h2>
+        <h2>Header - 2</h2>
+        <h2>Header - 2</h2>
+        <span>여기는 span영역</span>
+        
+        <br><br>
+        
+        <input><br>
+        <!-- input의 disabled 속성 : input을 사용못하게 막음 -->
+        <input disabled> <br>
+        <!-- 체크에 따라 메뉴가 보이게 안보이게 설정 -->
+        <label for="chk">메뉴</label>
+        <input id="chk" type="checkbox">
+        <div id="menu">
+            <ul>
+                <li>홈</li>
+                <li>회사소개</li>
+                <li>서비스소개</li>
+                <li>오시는길</li>
+            </ul>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NAVER</title>
+    <style>
+        #header {
+            text-align: center;
+            margin: auto;
+        }
+        
+        #window {
+            width: 474px;
+            height: 49px;
+            border: 2px solid #03cf5d;
+            padding: 10px;
+            margin-left: 30px;
+        }
+        
+        #window > input[type=text] {
+            border: 0px;
+            margin: 12px 0px 0px 9px;
+            width: 405px;
+            height: 23px;
+        }
+        
+        #header>div>input[type=button] {
+            width: 45px;
+            height: 45px;
+            border: 0;
+            background-color: #03cf5d;
+            background-image
+            : url(img/search.png);
+            background-size: 60%;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: inline-block;
+            padding: 16px;
+        }
+        
+        #header>div>p {
+            text-align: right;
+            font-size: 12px;
+        }
+        
+        #header>div:nth-child(1) {
+            width: 1080px;
+            margin: auto;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div>
+            <p>네이버를 시작페이지로 | 쥬니어네이버 | 해피밀</p>
+        </div>
+        <div>
+            <span>
+                <a href="http://www.naver.com"><img src="img/naver.img.PNG"></a>
+            </span>
+            <span id="window">
+                <input type="text">
+            </span>
+            <input type="button">
+        </div>
+    </div>
+    <div>
+        
+    </div>
+    <div id="footer">
+        
+    </div>
+</body>
+</html>

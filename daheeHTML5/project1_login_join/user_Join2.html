@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>회원가입 폼</title>
+    <meta charset="utf-8">
+    <script></script>
+    <style>
+        .td1 {
+            width: 130px;
+        }
+        .td2 {
+            width: 550px;
+        }
+        table {
+            background-color: #fff6b4;
+        }
+    </style>
+</head>
+    
+<body>
+    <h2>회원가입</h2>
+     <table border="1">
+            <tr>
+                <td class="td1"> <label for="userName">* 이름</label> </td>
+                <td class="td2"> <input id="userName" type="text"> </td>
+            </tr>
+            <tr>
+                <td class="td1"> <label for="userId">* ID</label> </td>
+                <td class="td2"> <input id="userId" type="text" name="userId"> </td>
+            </tr>
+            <tr>
+                <td class="td1"> <label for="userPw">* 비밀번호</label> </td>
+                <td class="td2"> <input id="userPw" type="password" name="userPw"> </td>
+            </tr>
+            <tr>
+                <td class="td1"> <label for="checkPw">* 비밀번호 확인</label> </td>
+                <td class="td2"> <input id="checkPw" type="password" name="userPw"> </td>
+            </tr>
+            <tr>
+                <td class="td1"> <label for="num">* 주민등록번호</label> </td>
+                <td class="td2"> <input id="num" type="text" name="num"> -
+                     <input type="password" name="num">
+                     <input type="button" value="주민등록번호 확인">
+                </td>
+            </tr>
+            <tr>
+                <td class="td1"> <label for="job">* 직업</label> </td>
+                <td class="td2"> <select name="job">
+                         <option>직업명</option>
+                         <option>직장인</option>
+                         <option>학생</option>
+                         <option>주부</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="td1">* 성별</td>
+                <td class="td2"><label for="m">남자</label><input id="m" type="radio" name="s">
+                    <label for="w">여자</label><input id="w" type="radio" name="s">
+                </td>
+            </tr>
+            <tr>
+                <td class="td1">* 취미</td>
+                <td class="td2">
+                    <input type="checkbox"> 독서
+                    <input type="checkbox"> 드라이브
+                    <input type="checkbox"> 영화<br>
+                    <input type="checkbox"> 콘서트
+                    <input type="checkbox"> 쇼핑
+                    <input type="checkbox"> 놀이동산
+                </td>
+            </tr>
+            <tr>
+                <td class="td1">* 자기소개</td>
+                <td class="td2"><textarea cols="70" rows="7"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center">
+                    <input type="submit" value="가입완료">
+                    <input type="reset" value="취소">
+                </td>
+            </tr>
+        </table>
+</body>
+</html>

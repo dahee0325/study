@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            //allCheck 의 상태가변경이 되면
+            $('#allCheck').change(function(){
+                //var chk = this.checked;
+
+                //this의 checked 속성을 가져옴
+                var chk = $(this).prop('checked');
+                
+                if (chk) {
+                    //children() : 자식들 - #item밑에 있는 태그들을
+                    //checked 속성을 true로 변경
+                    $('#item').children().prop('checked', true);
+                } else {
+                    $('#item').children().prop('checked', false);
+                }
+            });
+            
+            $('#year').change(function(){
+                
+                //#year 밑에 있는 option들중에서 selected 된것들의 val가져옴
+                var y = $('#year>option:selected').val()
+                location.href=y;
+            });
+            
+            
+        });
+    </script>
+</head>
+
+<body>
+    <form id="form">
+       년도
+        <select id="year">
+            <option value="http://www.naver.com">네이버</option>
+            <option value="http://www.daum.net">다음</option>
+            <option value="http://www.facebook.com">페이스북</option>
+        </select>
+
+
+        모두선택 <input type="checkbox" id="allCheck">
+        <div id="item">
+            <input type="checkbox"><br>
+            <input type="checkbox"><br>
+            <input type="checkbox"><br>
+            <input type="checkbox"><br>
+            <input type="checkbox"><br>
+        </div>
+    </form>
+</body>
+
+</html>

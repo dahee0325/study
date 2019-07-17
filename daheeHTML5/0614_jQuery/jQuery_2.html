@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            /*$('h1').on('click', function() {
+                var length = $('h1').length;
+                var nHtml = $(this).html();
+                $('#wrap').append('<h1>' + length + ' - ' + nHtml + '</h1>');
+
+            });*/
+            
+            //wrap안에 있는 h1을 클릭하면
+            //새롭게 생성되는 h1을 누르면 누른 h1을 상대로 이벤트가 계속 생겨난다.
+            $('#wrap').on('click','h1',function(){
+                var length = $('h1').length;
+                var nHtml = $(this).html();
+                $('#wrap').append('<h1>' + length + ' - ' + nHtml + '</h1>');
+            });
+            
+        });
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+        <h1>headers</h1>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>폼 테스트</title>
+    <style>
+        form {
+            /*줄간격맞춰주는 line-height*/
+            line-height: 30px;
+        }
+
+        #btn1,
+        #btn2 {
+            border: 0px;
+            background-color: crimson;
+            color: aliceblue;
+        }
+    </style>
+    <script></script>
+</head>
+
+<body>
+    <h1> Form Tag </h1>
+    <!-- 보내는 역할만 하는 form 태그 (그래서 화면에 보이지않는다) -->
+    <!-- to.html로 이동 (로그인 버튼 클릭시) -->
+    <!-- input에 name(파라미터이름)에 이름을 붙여줘서 to.html로 데이터값을 보냄 -->
+    <!-- method="post" 를 통해 개인정보를 숨김 (사용안하면 주소창에 뜸) 전부다숨길순없지만 눈에 너무 잘보여서 위험,.,. -->
+    <!-- method="get"방식은 주소창에 보여줌 / 보안으로는 post방식을 사용해야함 -->
+    <form action="to.html" method="get">
+        ID <input name="uid" type="text"><br>
+        PW <input name="upw" type="password"><br>
+
+        <!-- 파일명이 한글이면 유의.. 파라메타값으로 넘어가는값이 다르게 처리됨-->
+        사진 <input type="file" name="uPhoto"><br>
+        개인정보 활용 동의 <input type="checkbox" name="check"><br>
+
+        <!-- radio 의 name설정이 같아서 같은걸로 인식하고 하나만 체크 가능하도록함 -->
+        짜장면<input type="radio" name="menu">
+        짬뽕<input type="radio" name="menu">
+        탕수육<input type="radio" name="menu"><br>
+
+        <!-- hidden 으로 처리하면 눈에 보이지 않게 처리된다. value값이 있어도 감춰짐 -->
+        <input type="hidden" name="nic" value="tester">
+
+        <!-- date : 날짜를 입력해줄 수 있다. 화면에 보이는 -상태로 데이터가 들어가게된다. -->
+        <input type="date" name="uBirth"><br>
+
+        <!-- number : 숫자 말고는 입력불가능하다. -->
+        <input type="number" name="age"><br>
+
+        <!-- reset : 데이터가 지워지는게 아니라 포맷 최초상태로 돌아간다. -->
+        <input id="btn1" type="reset" value="초기화">
+        <input id="btn2" type="submit" value="로그인">
+    </form>
+
+    <hr>
+
+    <form>
+        <!-- lable에 for로 이름을 설정하면 같은 이름의id값을 가진 input으로 이동한다. -->
+        <label for="userName">이름</label> <input id="userName1" type="text"><br>
+        <label for="userId">아 이 디</label> <input id="userId1" type="text" name="userId"><br>
+        <label for="userPw">비밀번호</label> <input id="userPw1" type="password" name="userPw"><br>
+        성별 : <label for="m">남자</label><input id="m1" type="radio" name="s">
+        <label for="w">여자</label><input id="w1" type="radio" name="s"><br>
+        생일
+        <!-- 선택할 수 있는 폼을 만들어 주는 select태그 option에 항목을 넣으면 선택할 수 있는 값을 넣음-->
+        <select name="bYear">
+            <!-- value : 넘겨줄 데이터, 쓰지않으면 옵션안에 들어가있는 값이 넘어간다 -->
+            <option value="">년도</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+            <option value="1997">1997</option>
+        </select>
+        <select name="bMonth">
+            <option>월</option>
+            <option>03</option>
+        </select>
+        <select name="bDay">
+            <option>일</option>
+            <option>25</option>
+        </select>
+        <br>
+        <input type="submit" value="가입">
+    </form>
+    
+        <hr>
+    
+    <form>
+    <!-- fieldset : 필드들의 셋트라는 뜻 , 하나로 묶어줌-->
+    <fieldset>
+        <!-- 필드 위에 제목을 지정해줄 수 있다. -->
+        <legend>회원가입방식</legend>
+        <!--테이블을 이용한 레이아웃 정리-->
+        <table border="0">
+            <tr>
+                <td> <label for="userName">이름</label> </td>
+                <td> <input id="userName" type="text"> </td>
+            </tr>
+            <tr>
+                <td> <label for="userId">아이디</label> </td>
+                <td> <input id="userId" type="text" name="userId"> </td>
+            </tr>
+            <tr>
+                <td> <label for="userPw">비밀번호</label> </td>
+                <td> <input id="userPw" type="password" name="userPw"> </td>
+            </tr>
+            <tr>
+                <td>성별</td>
+                <td> <label for="m">남자</label><input id="m" type="radio" name="s">
+                    <label for="w">여자</label><input id="w" type="radio" name="s"> </td>
+            </tr>
+            <tr>
+                <td>생일</td>
+                <td> <select name="bYear">
+                        <option value="">년도</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="1997">1997</option>
+                    </select>
+                    <select name="bMonth">
+                        <option>월</option>
+                        <option>03</option>
+                    </select>
+                    <select name="bDay">
+                        <option>일</option>
+                        <option>25</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center"><input type="submit" value="가입"></td>
+            </tr>
+        </table>
+     </fieldset>
+    </form>
+</body></html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>생성자를 통한 성적관리</title>
+    <script>
+        
+        //생성자 함수 정의
+        //함수의 이름(식별자)의 첫글자는 대문자를 사용해서 정의한다.
+        function Student(sname,k,e,m) {
+            
+            //매개변수를 받아서 생성자 변수에 저장
+            this.name = sname;//이름    
+            this.kor = k;//국어점수
+            this.eng = e;//영어점수
+            this.met = m;//수학점수
+            
+            //외부에서 호출할 수 있는 메서드 정의 : this 를 앞에 꼭 붙여야함
+            //총점 계산 함수(메서드정의)
+            /*
+            this.getSum = function() {
+                return this.kor + this.eng + this.met;
+            };
+            
+            //평균 계산 함수(메서드 정의)
+            this.getAvg = function() {
+                return this.getSum()/3;
+            };
+            
+            //결과 출력 메서드
+            this.toString = function() {
+                return this.name+'     '+this.getSum()+'     '+this.getAvg()+'\n'
+            };
+            */
+        }
+        
+        //공통으로 사용할 메서드를 prototype에 메서드 정의 : 공용으로 사용할 수 있는 메서드 정의
+        //getSum이란 이름으로 정의할 것이다.
+        Student.prototype.getSum = function() {
+            return this.kor + this.eng + this.met;
+        };
+        
+        Student.prototype.getAvg = function() {
+            return this.getSum()/3;
+        };
+        
+        Student.prototype.toString = function() {
+            return this.name+'     '+this.getSum()+'     '+this.getAvg()+'\n'
+        };
+        
+        var students = [];
+        students.push(new Student('홍길동',99,70,77));
+        students.push(new Student('홍길동1',29,72,66));
+        students.push(new Student('홍길동2',42,15,13));
+        students.push(new Student('홍길동3',53,66,64));
+        students.push(new Student('홍길동4',22,63,42));
+        students.push(new Student('홍길동5',19,21,62));
+        students.push(new Student('홍길동6',95,55,33));
+        students.push(new Student('홍길동7',21,78,55));
+        students.push(new Student('홍길동8',43,74,64));
+        students.push(new Student('홍길동9',12,98,14));
+        
+        //정렬 총점을 기준으로 정렬
+        //내림차순 : right - left
+        //오름차순 : left - right
+        students.sort(function(left, right) {
+            return right.getSum() - left.getSum();
+        });
+        
+        //지정한 부분만 짤라서 추출함 0~3번째까지 보여줌
+        students = students.slice(0,3);
+        
+        
+        var output = '  이름    총점     평균\n';
+        
+        for(var i in students) {
+            output += students[i].toString();
+        }
+        
+        alert(output);
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

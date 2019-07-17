@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery 배열 처리</title>
+    <style>
+        .title {
+            background-color: aqua;
+            color: violet;
+            font-size: 48px;
+            text-align: center;
+            border-radius: 25px;
+            line-height: 50px;
+        }
+    
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script>
+        
+        $(document).ready(function(){
+            
+            var arr = [];
+            //배열에 요소 저장
+            arr.push({name:'NAVER', url:'http://www.naver.com'});
+            arr.push({name:'DAUM', url:'http://www.daum.net'});
+            arr.push({name:'FACEBOOK', url:'http://www.facebook.com'});
+            
+            //전역변수
+            var nHtml='';
+            
+            //$.each(배열원본, 처리(핸들러)함수) 정의
+            //$.each(arr,function(index, item){}); -> item만 들어갈수도있음
+            $.each(arr,function(index, item){
+                //반복처리
+                nHtml += '<a href="' + item.url + '">' + index + '. ' + item.name + '</a><br>';
+            });
+            
+            //document.body.innerHTML = nHtml;
+            //$('h1').css('background-color', 'yellow');
+            //$('h1) : 제이쿼리 객체로 생성한거지만
+            //each안에 들어있는 item은 자바스크립트객체다
+            $('h1').each(function(index, item) {
+                //h1에 들어있는 item(값)들을 가져와서 출력해줌
+                //alert(item.innerHTML);
+                
+                //밑에처럼 사용하면 getter와 같은 역할 (값을 가져옴)
+                //$(item).html();
+                //var v = $(item).html();
+                //alert(v);
+                
+                //item.innerHTML += '['+index+']';
+                
+                //$(item).html($(item).html()+' ['+ index +']');
+                
+                var insertHtml = '';
+                
+                insertHtml += '<a href="'+ arr[index].url +'">';
+                insertHtml += arr[index].name;
+                insertHtml += '</a>';
+                
+                $(item).html(insertHtml);
+                
+                //인덱스 번호가 홀수라면
+                if(index%2 == 1){
+                    //addClass 를 사용하면 class이름을 추가해줄수있다.
+                    $(item).addClass('title');
+                }
+                
+            });
+            
+        });
+        
+    </script>
+</head>
+<body>
+
+    <h1>H1 - 0</h1>
+    <h1>H1 - 1</h1>
+    <h1>H1 - 2</h1>
+
+</body>
+</html>

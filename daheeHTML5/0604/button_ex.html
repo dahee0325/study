@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>버튼 만들기</title>
+    <style>
+        #btn {
+            width: 180px;
+            height: 100px;
+            background-color: darkorange;
+            border-radius: 20px;
+            border: 10px solid white;
+            box-shadow: 5px 3px 5px 1px grey;
+            text-align: center;
+            /* 글자가 가운데 오기 위해서는 감싸고있는 영역의 높이만큼 똑같이 써준다. */
+            line-height: 100px;
+            font-style: italic;
+            
+            /* 버튼을 화면의 가운데로 가게하기*/
+            /* 화면의 가운데는 50% 50%  */
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            
+        }
+        
+        #btn > a {
+            font-weight: bold;
+            font-size: 30px;
+            text-decoration: none;
+            color: white;
+            /* inline 속성에서 block속성으로 바꿈으로써 btn이 가지고있는 공간만큼 차지하게된다.*/
+            display: block;
+        }
+        
+        #btn:hover {
+            background-color: orangered;
+            cursor: pointer;
+            border-color: black;
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+    <div id="btn">
+        <a href="http://www.naver.com">Click</a>
+    </div>
+</body>
+</html>

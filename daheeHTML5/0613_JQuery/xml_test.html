@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>xml 파싱</title>
+    <style>
+        
+        a {
+            display: block;
+            border: 1px solid gray;
+            border-radius: 15px;
+            width: 500px;
+            text-align: center;
+            margin: 20px;
+            background-color: black;
+            text-decoration: none;
+            color: white;
+            cursor: pointer;
+            height: 100px;
+            line-height: 100px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        a:hover {
+            background-color: white;
+            color: black;
+            text-decoration: underline;
+        }
+    
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script>
+        
+        $(document).ready( function() {
+            
+            var xml = '';
+            
+            xml += '<friends>';
+            xml += '    <friend>';
+            xml += '        <name>네이버</name>';
+            xml += '        <url>http://www.naver.com</url>';
+            xml += '    </friend>';
+            xml += '    <friend>';
+            xml += '        <name>다음</name>';
+            xml += '        <url>http://www.daum.net</url>';
+            xml += '    </friend>';
+            xml += '    <friend>';
+            xml += '        <name>페이스북</name>';
+            xml += '        <url>http://www.facebook.com</url>';
+            xml += '    </friend>';
+            xml += '</friends>';
+            
+            
+            var xmlDoc = $.parseHTML(xml);
+            
+            $(xmlDoc).find('friend').each(function(index){
+                
+                var name = $(this).find('name').text();
+                var url = $(this).find('url').text();
+                
+                var xmlHtml = '';
+                xmlHtml += '<a href="' + url + '">' + name + '</a>';
+                
+                document.body.innerHTML += xmlHtml;
+                
+            });
+            
+            
+        });
+        
+        
+    </script>
+</head>
+<body>
+</body>
+</html>

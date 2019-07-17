@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script>
+        // $ = jQuery
+        // ready() : onload 속성 처리와 같다.
+
+        $(document).ready(function() {
+            
+            //alert('실행');
+            
+            $('*').css('color','red');
+            $('h1').css('background-color', 'black');
+            $('#title').css('font-size','40px').css('color','yellow',);
+            
+            //h1태그의 italic 클래스를 가진애만 선택
+            $('h1.italic').css('font-style','italic');
+            
+            //val() 을 사용하면 value값을 가져오고 줄 수 있다.
+            //val() 이라고 사용하면 type=text에 있는 value값을 가져와서 str에 저장
+            //var str = $('input[type=text]').val();
+            //alert(str);
+            //val('값입력') 이라고 사용하면 input[type=text] 에 값입력이라는 value값이 넘어간다.
+           //$('input[type=text]').val('하이');
+            
+            //input:type의 속성을 넣으면 쉽게 선택가능하다
+            //$('input:submit').val('수정');
+            
+            //체크박스 동의했는지 5초후에 확인
+            /*
+            setTimeout(function(){
+                
+                //체크박스가 체크되었는지 확인
+                //체크가 되었다면 value값 Y를 가져온다.
+                var chk = $('input:checkbox:checked').val();
+                alert(chk);
+                
+            },5000);
+            
+            //성별 10초후 체크
+            setTimeout(function() {
+                //select 옵션에서 선택된 value값을 가져옴
+                var v = $('select>option:selected').val();
+                alert(v);
+            },1000*10);
+            */
+            
+            //h2홀수번째에 있는태그들 선택
+            $('h2:odd').css('color','blue');
+            //짝수번째
+            $('h2:even').css('color','green');
+            //h2의 첫번째
+            $('h2:first').css('background-color','yellow').css('color','black');
+            //h2의 마지막꺼
+            $('h2:last').css('background-color','gray');
+            
+            
+        });
+    </script>
+</head>
+
+<body>
+    <input type="text" value="아...">
+    <input type="submit" value="등록">
+    <hr>
+    개인정보 동의<input type="checkbox" value="Y"> <br>
+    성별
+    <!-- name값이 파라미터값으로 넘어간다. -->
+    <select name="gender">
+        <!-- default값은 null로 두지말고 초기값을 준다.-->
+        <option value="ns">성별</option>
+        <option value="m">남자</option>
+        <option value="w">여자</option>
+    </select>
+    
+    <h1 id="title">h1</h1>
+    <h2>h2</h2>
+    <h2>h2</h2>
+    <h2>h2</h2>
+    <h1 class="italic">h1</h1>
+    <h2 class="italic">h2</h2>
+    <h1>h1</h1>
+    <h1>h1</h1>
+
+</body>
+
+</html>

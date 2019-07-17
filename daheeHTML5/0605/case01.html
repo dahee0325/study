@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>수평 정렬</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        div {
+            border : 1px solid gray; 
+        }
+        
+        /* 해더 */
+        #header {
+            padding: 25px;
+            /* h1태그와 동일함 */
+            font-size: 36px;
+            font-weight: bold;
+            background-color: aquamarine;
+        }
+        
+        /* 네비게이션 */
+        #nav {
+            border-top: 3px solid blue;
+            border-bottom: 3px solid blue;
+            height: 30px;
+        }
+        
+        #nav>ul {
+            /* 리스트 스타일 지정 : dot삭제 */
+            list-style: none;
+            overflow: hidden;
+        }
+        
+        #nav>ul>li {
+            float: left;
+            padding: 5px 15px;
+        }
+        
+        /* 콘텐츠 영역 */
+        
+        #wrap {
+            /*clear: both*/
+        }
+        
+        #content {
+            float: left;
+            width: 70%;
+            height: 250px;
+        }
+        
+        #aside {
+            float: right;
+            width: 25%;
+            height: 200px;
+        }
+        
+        #footer {
+            clear: both;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- 해더 시작 -->
+    <div id="header">
+        해더
+    </div>
+    <!-- 해더 끝 -->
+    <div id="nav">
+        <ul>
+           <li><a href="#">menu-00</a></li>
+           <li><a href="#">menu-01</a></li>
+           <li><a href="#">menu-02</a></li>
+           <li><a href="#">menu-03</a></li>
+           <li><a href="#">menu-04</a></li> 
+        </ul>
+    </div>
+    <div id="wrap">
+        <div id="content">
+            내용
+        </div>
+        <div id="aside">
+            광고
+        </div>
+    </div>
+    <div id="footer">
+        footer
+    </div>
+</body>
+</html>

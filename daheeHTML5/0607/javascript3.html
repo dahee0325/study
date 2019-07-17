@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>array</title>
+    <script>
+        
+        var array = [1,2,3,4,5]
+        
+        //alert(array);
+        
+        var result = 0;
+        
+        for(var i=0; i<array.length; i++) {
+            result += array[i];
+        }
+        
+        //alert(result);
+        
+        var array = [
+            1,//숫자
+            'one',//문자
+            false,//boolean
+            function() {},//함수
+            {},//object 객체
+            [1,2,3,4,5]//배열
+        ]
+        
+        //alert(array);
+        
+        //객체의 프로퍼티 열거(나열하는데에 목적을 가짐)
+        //var o : 식별할 수 있는 이름 또는 인덱스를 가져온다.
+        for(var o in array) {
+            /* 배열의 o 번지의 타입을 출력 */
+            alert(typeof(array[o]));
+        }
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

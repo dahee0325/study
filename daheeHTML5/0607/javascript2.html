@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>list test</title>
+    <script>
+        
+        /* 변수가 정의되지 않는 상태 : undefined */
+        var v;//undefined
+        var num = 10;//number
+        var str = 'Hello';//String
+        var boolCheck = true;//bool
+        var functionType = function() {};//function
+        var objType = {};//object
+        
+        var num1 = '30';
+        var num2 = '30a';
+        //형변환 처리 num1을 숫자자료형으로 형변환함
+        var num3 = Number(num1);
+        alert(typeof(num3));
+        alert(num3);
+        //a가 껴있어서 숫자로 형변환을 못한다고 NaN 으로 표시함
+        var num4 = Number(num2);
+        alert(num4);
+        
+        
+        window.onload = function() {
+            
+            var chk = confirm("출력 할까요 ?")
+            
+            if(chk) {
+                 var list = '';
+            list += '<ul>';
+            list += '   <li>' + v + '</li>\n';
+            list += '   <li>' + num + '</li>\n';
+            list += '   <li>' + str + '</li>\n';
+            list += '   <li>' + boolCheck + '</li>\n';
+            list += '   <li>' + functionType + '</li>\n';
+            list += '   <li>' + objType + '</li>\n';
+            list += '</ul>'
+            
+            alert(list);
+            
+            //body에 문자열 출력해준다
+            //document.body.innerHTML = 'window.body.innerHTML';
+            
+            //htmlt에 list에 있는 html언어가 적용되어서 원래 알던 ul li형태로 출력된다.
+            document.body.innerHTML = list;
+            }
+           
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery 메서드</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script>
+        $(document).ready(function() {
+            
+            //$('h1:even').css('background-color','black').css('color','white');
+            
+            //h1 태그 중에서 짝수번째 태그들을 선택(필터링함)
+            /*
+            $('h1').filter(':even').css('background-color','black').css('color','white');
+            
+            //함수는 매개변수를 가져와서 특정 조건을 만들어준다.
+            $('h1').filter(function(i) {
+                //반환값은 true, false 로 만들기
+                //true -> 선택된상태로, false -> 미선택상태로
+                return i%2 == 1;
+            }).css('color', 'green');
+            */
+            
+            
+            /*
+            //1.모든 h1에 orange색 배경을 적용
+            //2.짝수번째의 h1을 필터링하여 선택하여 폰트색을 흰색으로 변경
+            //3.end()를 이용하여 짝수번째 선택을 해체 -> 모든 h1을 선택하여 폰트색을 흰색으로 변경
+            //4.홀수번째 h1을 필터링하여 폰트색상을 red로 변경
+            $('h1').css('background-color','orange').filter(':even').css('color','#FFF').end().filter(':odd').css('color','red');
+            
+            //h1중에서 5번째 선택
+            $('h1').eq(5).css('color','black');
+            */
+            
+            //add() - 문서객체를 더 추가함
+            //h1을 다 선택한 상태에서 h2도 추가해서 마지막css는 h1과 h2 둘다 적용이된다.
+            //$('h1').css('background-color','aqua').add('h2').css('color','blue').css('float','left');
+            
+            //parent() 부모를 찾게되는 메서드
+            //$('input').parent().css('border','1px solid #AAA');
+            
+            //$('input').parent().css('border','1px solid #AAA');
+            
+            
+        });
+    </script>
+</head>
+
+<body>
+
+    <h1>h1-00</h1>
+    <h1>h1-01</h1>
+    <h1>h1-02</h1>
+    <h1>h1-03</h1>
+    <h1>h1-04</h1>
+    <h1>h1-05</h1>
+    <h1>h1-06</h1>
+    <h1>h1-07</h1>
+    <h2>h2-00</h2>
+    <h2>h2-01</h2>
+    <div>
+        <input>
+    </div>
+</body>
+</html>

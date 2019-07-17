@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>attr()</title>
+    <style>
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script>
+        
+        $(document).ready(function(){
+            
+            //attr() : 속성값 추가할때 사용
+            //#(selector).attr(속성이름, 속성값);
+            //#(selector).attr(속성이름, 함수(index, attr) {});
+            //#(selector).attr(object);
+            //이미지 경로값을 가져와서 imgPath에 저장
+            var imgPath = $('img').attr('src');//getter
+            
+            //alert(imgPath);
+            setTimeout(function() {
+                /*
+                img의 width속성을 재정의
+                $('img').attr('width', function(index){
+                    return (index+1)*100;
+                });  
+                */
+                
+                /*//여러개의 속성을 사용할때는 객체형태로 정의해서 사용하면된다.
+                $('img').attr({
+                    src:'/0531/mini1.jpg',
+                    width: function(index) {
+                        return (index+1)*100;
+                    },
+                })*/
+                
+                //attr : html 이 갖는 속성 , prop은 자바스크립트가 가진 속성
+                //기존 checkbox에 checked 속성을 넣어둬서 attr는 체크를 풀어도 checked값이 들어가있음
+                //prop는 ture false로 구분
+                var chk1 = $('input:checkbox').attr('checked');
+                
+                //var chk2 = $('input:checkbox').prop('checked');
+                
+                //체크안된 상태더라도 true로 변경하여 체크되게 만들음
+                var chk2 = $('input:checkbox').prop('checked',true);
+                
+                //alert(chk1 + ':' + chk2);
+                
+                if(!chk2) {
+                    //alert('동의해주세요');
+                }else {
+                    //alert('동의했습니다.');
+                }
+                
+                //a태그의 href 속성값을 가져옴 (getter)
+                //prop 는 html의 내부경로도가져옴
+                var href1 = $('a').attr('href');
+                var href2 = $('a').prop('href');
+                
+                //alert(href1 + ' : ' + href2);
+                
+                //alert($('a').css('color','black'));
+                
+                var text1 = $('h1').html();
+                var text2 = $('h1').text();
+                
+                alert(text1 + ' : ' + text2);
+                
+                //html 언어가 적용
+                $('h1').html('<i>안녕</i>');
+                //text형태로 들어가기 때문에 value값으로 적용됨
+                $('h2').text('<i>안녕</i>');
+                
+            },5000);
+            
+        });
+    
+    </script>
+</head>
+<body>
+   
+   개인정보 동의 <input type="checkbox" checked>
+   <hr style="margin: 10px 0">
+   <a href="jQuery_array.html">test</a>
+   
+   <h1>
+       <p>안녕하세요</p>
+   </h1>
+   <h2>
+       <p>안녕하세요</p>
+   </h2>
+   <!--
+    <img src="/0603/img/mini2.jpg" width="100">
+    <img src="/0603/img/mini2.jpg" width="100">
+    <img src="/0603/img/mini2.jpg" width="100">
+   --> 
+</body>
+</html>
