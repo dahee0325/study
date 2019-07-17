@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#wrap h1 {
+	padding: 20px;
+}
+
+#wrap div {
+	width: 960px;
+	text-align: center;
+	margin: auto;
+}
+
+table {
+	margin: auto;
+	width: 300px;
+}
+
+table td {
+	padding: 5px;
+}
+
+table td:nth-child(2n+1) {
+	width: 30%;
+}
+
+#ch {
+	text-align: left;
+	font-size: 13px;
+}
+
+table input[type=checkbox] {
+	width: 30px;
+	border: 0;
+}
+
+table select, table input[type=submit], table input[type=reset] {
+	border: 0;
+	width: 100%;
+	background-color: white;
+	border: 1px solid black;
+}
+
+table input[type=submit], table input[type=reset] {
+	padding: 5px;
+	margin-bottom: 3px;
+}
+
+table input[type=text] {
+	border: 0;
+	width: 100%;
+	background-color: white;
+	border-bottom: 1px solid black;
+}
+
+
+hr {
+	border: 0;
+	border-bottom: 1px solid black;
+	margin: 10px;
+}
+
+a {
+	font-size: 13px;
+	display: block;
+	width: 100%;
+	background-color: white;
+	border: 1px solid black;
+	text-decoration: none;
+	color: black;
+	line-height: 30px;
+	
+}

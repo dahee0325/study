@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Ajax Basic</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(document).ready(function () {
+        	
+        	setTimeout(function(){
+        		$.ajax({
+                    url: 'idCheck.jsp',
+                    type: 'GET',
+                    data: {
+                        name: $('#txt').val(),
+                        pw: $('#txt2').val()
+                    },
+                    success: function (data) {
+                    	$('body').append(data);                        
+                    }
+                });
+			}, 5000);
+        });
+    </script>
+</head>
+<body>
+
+<input type="text" id="txt" value="Y"><br>
+<input type="text" id="txt2" value="Y"><br>
+
+</body>
+</html>

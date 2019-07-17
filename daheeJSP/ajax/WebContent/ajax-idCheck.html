@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Ajax Basic</title>
+    <meta charset="utf-8">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(document).ready(function () {
+        	
+        	/* $('#btn').click(function() {
+        		$.ajax({
+                    url: 'idCheck.jsp',
+                    type: 'GET',
+                    data: {
+                        uId: $('#uId').val()
+                    },
+                    success: function (data) {
+                    	//alert(data);
+                    	if(data=='Y') {
+                    		//alert('멋진아이디!');
+                    		$('body').append('<span style="color:blue">멋진아이디입니다.</span>');
+                    	}else {
+                    		$('body').append('<span style="color:red">사용할 수 없는 아이디입니다.</span>');
+                    	}
+                    	//$('body').append(data);	
+                    }
+                });
+        	}); */
+        	
+        	
+        	$('#uId').focusout(function() {
+        		
+        		$('#idchkMsg').html("");
+        		
+        		$.ajax({
+                    url: 'idCheck.jsp',
+                    type: 'GET',
+                    data: {
+                        uId: $('#uId').val()
+                    },
+                    success: function (data) {
+                    	//alert(data);
+                    	if(data=='Y') {
+                    		/* alert('멋진아이디!'); */
+                    		/* $('body').append('<span style="color:blue">멋진아이디입니다.</span>'); */
+                    		$('#idchkMsg').html('멋진아이디');
+                    		$('#idchkMsg').css('color','blue');
+                    	}else {
+                    		/* $('body').append('<span style="color:red">사용할 수 없는 아이디입니다.</span>'); */
+                    		$('#idchkMsg').html('사용할수없는아이디');
+                    		$('#idchkMsg').css('color','red');
+                    	}
+                    	//$('body').append(data);	
+                    }
+                });
+        	});
+        	
+        	
+        	/* setTimeout(function(){
+        		
+			}, 5000); */
+        	
+        });
+    </script>
+</head>
+<body>
+
+<input type="text" id="uId"><!-- <input type="button" id="btn" value="idCheck">--><br>
+<span id="idchkMsg">
+</span>
+</body>
+</html>
