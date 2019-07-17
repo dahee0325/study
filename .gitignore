@@ -125,3 +125,9 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/windows,eclipse,java-web
+daheeJSP/Servers/Tomcat v8.5 Server at localhost-config/catalina.policy
+daheeJSP/Servers/Tomcat v8.5 Server at localhost-config/catalina.properties
+daheeJSP/Servers/Tomcat v8.5 Server at localhost-config/server.xml
+daheeJSP/Servers/Tomcat v8.5 Server at localhost-config/context.xml
+daheeJSP/Servers/Tomcat v8.5 Server at localhost-config/tomcat-users.xml
+daheeJSP/Servers/Tomcat v8.5 Server at localhost-config/web.xml
