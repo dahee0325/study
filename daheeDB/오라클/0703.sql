@@ -77,6 +77,12 @@ order by sal desc, hiredate asc;
 select sysdate 날짜, to_char(sysdate, 'YYYY-MM-DD HH24:MI:SS') 변환날짜
 from dual;
 
+select m_num, u_num,m_title,m_content, to_char(message.m_writedate, 'MM-DD HH24:MI'), m_to
+from message where m_num = 31;
+
+select m_num, to_char(message.m_writedate, 'MM-DD HH24:MI') 변환날짜
+from message;
+
 select hiredate, to_char(hiredate, 'YYYY.MM.DD(DY)') 날짜
 from emp;
 
