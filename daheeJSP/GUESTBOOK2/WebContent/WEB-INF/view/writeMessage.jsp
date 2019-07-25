@@ -19,6 +19,6 @@
 		</c:if>
 	</h1>
 	<!-- 변수설정 ㄴㄴ 출력만하기위해 -->	
-	<a href="<c:url value="/guestList" />">리스르</a>
+	<a href="<c:url value="/guestList" />">리스트</a>
 </body>
 </html>

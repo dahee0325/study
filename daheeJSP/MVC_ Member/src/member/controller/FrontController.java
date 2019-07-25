@@ -1,4 +1,4 @@
-package guestbook.controller;
+package member.controller;
 
 
 import java.io.FileInputStream;
@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import guestbook.service.GuestBookService;
+import member.service.MemberService;
 
 /**
  * Servlet implementation class FrontController
@@ -32,7 +32,7 @@ import guestbook.service.GuestBookService;
 
 public class FrontController extends HttpServlet{
 
-	private Map<String, GuestBookService> commands = new HashMap<String, GuestBookService>();
+	private Map<String, MemberService> commands = new HashMap<String, MemberService>();
 	
 	public void init(ServletConfig config) throws ServletException {
 		String configfile = config.getInitParameter("config");//위에 config라고 정의한 value값(경로값)을 가져온다.
@@ -66,7 +66,7 @@ public class FrontController extends HttpServlet{
 				
 				Class serviceClass = Class.forName(serviceClassName);
 				
-				GuestBookService service = (GuestBookService)serviceClass.newInstance();
+				MemberService service = (MemberService)serviceClass.newInstance();
 				
 				//commands Map 에 저장<String, GuestBookService>
 				commands.put(command,service);
@@ -108,9 +108,9 @@ public class FrontController extends HttpServlet{
 		System.out.println(commandUri);
 		
 		//2. 사용자 요청에 맞는 모델 실행(서비스, 메서드 실행) -> view 페이지 반환
-		String viewPage = "/WEB-INF/view/null.jsp";
+		String viewPage = "/WEB-INF/view/main.jsp";
 		
-		GuestBookService service = commands.get(commandUri);//null값을 반환하기도 한다 (나중에 처리)
+		MemberService service = commands.get(commandUri);//null값을 반환하기도 한다 (나중에 처리)
 		
 		if(service != null) {
 			viewPage = service.getViewName(request, response);

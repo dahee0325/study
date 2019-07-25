@@ -1,0 +1,7 @@
+/loginForm=member.service.LoginFormService
+/login=member.service.LoginService
+/memberJoinForm=member.service.MemberJoinFormService
+/memberJoin=member.service.MemberJoinService
+/memberList=member.service.MemberListService
+/logout=member.service.LogoutService
+/=member.service.MainService
