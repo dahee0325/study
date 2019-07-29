@@ -6,9 +6,7 @@
 <meta charset="UTF-8">
 <title>Main Page</title>
 <link href="/mm/css/default.css" rel="stylesheet" type="text/css">
-<style>
-
-</style>
+<style></style>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
 <body>
