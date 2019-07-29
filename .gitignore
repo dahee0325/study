@@ -131,3 +131,10 @@ daheeJSP/Servers/Tomcat v8.5 Server at localhost-config/server.xml
 daheeJSP/Servers/Tomcat v8.5 Server at localhost-config/context.xml
 daheeJSP/Servers/Tomcat v8.5 Server at localhost-config/tomcat-users.xml
 daheeJSP/Servers/Tomcat v8.5 Server at localhost-config/web.xml
+*.policy
+*.properties
+*.xml
+*.access
+*.password
+*.java
+*.jsp
