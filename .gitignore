@@ -131,6 +131,7 @@ daheeJSP/Servers/Tomcat v8.5 Server at localhost-config/server.xml
 daheeJSP/Servers/Tomcat v8.5 Server at localhost-config/context.xml
 daheeJSP/Servers/Tomcat v8.5 Server at localhost-config/tomcat-users.xml
 daheeJSP/Servers/Tomcat v8.5 Server at localhost-config/web.xml
+<<<<<<< HEAD
 
 daheeSpring/Servers/Tomcat v8.5 Server at localhost-config/catalina.policy
 daheeSpring/Servers/Tomcat v8.5 Server at localhost-config/catalina.properties
@@ -138,3 +139,8 @@ daheeSpring/Servers/Tomcat v8.5 Server at localhost-config/server.xml
 daheeSpring/Servers/Tomcat v8.5 Server at localhost-config/context.xml
 daheeSpring/Servers/Tomcat v8.5 Server at localhost-config/tomcat-users.xml
 daheeSpring/Servers/Tomcat v8.5 Server at localhost-config/web.xml
+=======
+*.policy
+*.access
+*.password
+>>>>>>> d8e7f4d081f0ae6740aada3dc0b3c52296304804
