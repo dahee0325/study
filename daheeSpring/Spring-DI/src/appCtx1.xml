@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- xmlns:p="http://www.springframework.org/schema/p" 를 통해 인스턴스를 바로 불러올 수 있음 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+	
+	<!-- MemberDao 객체를 bean으로 등록, 식별자는 memberDao -->
+	<bean id="memberDao" class="member.MemberDao" />
+	
+	<!-- 프로퍼티 주입방식 : 생성자가 없어도 bean생성 가능 -->
+	<bean id="registService" class="member.MemberRegisterService">
+		<!-- name : 인스턴스 변수명 -->
+		<property name="memberDao">
+			<!-- 참조형 -->
+			<!-- <ref bean="memberDao"/> -->
+			<!-- 컨테이너는 이렇게 정의를 하면 객체를 생성할거라는것을 앎/ 하지만 아이디가 없어서 식별할 수 없음(한번만 인스턴스를 생성해줌)-->
+			<bean class="member.MemberDao" /> 
+		</property>
+	</bean>
+	
+	<!-- xmlns:p="http://www.springframework.org/schema/p"를 사용하여  memberDao 객체 생성-->
+	<bean id="changePasswordService" class="member.ChangePasswordService" p:memberDao-ref="memberDao" />
+		<!-- name : 인스턴스 변수명 -->
+		<!-- <property name="memberDao" ref="memberDao" /> -->
+	<!-- </bean> -->
+	
+	<!-- 생성자 주입방식을 통한 bean 생성 -->
+	<!-- <bean id="registService" class="member.MemberRegisterService">
+		<constructor-arg>
+			ref 를통해 등록되어있는 bean을 참조
+			<ref bean="memberDao"/>
+		</constructor-arg>
+	</bean> -->
+	
+	<!-- constructor-arg의 속성을 사용한 bean 참조 -->
+	<!-- <bean id="changePasswordService" class="member.ChangePasswordService">
+		<constructor-arg ref="memberDao"/>
+	</bean> -->
+	
+</beans>
+ 

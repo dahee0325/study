@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- xmlns:p="http://www.springframework.org/schema/p" 를 통해 인스턴스를 바로 불러올 수 있음 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+	
+	<!-- MemberDao 객체를 bean으로 등록, 식별자는 memberDao -->
+	<bean id="memberDao" class="member.MemberDao" />
+	
+	<!-- 
+		singleton : 컨테이너에 한 개의 빈 객체만 생성한다.(기본값)
+		prototype : 빈을 요청할 때마다 빈 객체를 생성한다.
+		request : HTTP 요청마다 빈 객체를 생성한다.(WebApplicationContext에서만 적용)
+		session : HTTP 세션마다 빈 객체를 생성한다.(WebApplicationContext에서만 적용)
+		global-session : 글로벌 HTTP 세션에 대해 빈 객체를 생성한다. 포틀릿을 지원하는 컨텍스트에 대해서만 적용가능
+	 -->
+	 	
+	<!-- scope : default 값은 singleton-->
+	<bean id="registService" class="member.MemberRegisterService" autowire="byName"/>
+	
+	<!-- prototype : 요청할때마다 새로운 객체를 생성해서 줌 -->
+	<bean id="changePasswordService" class="member.ChangePasswordService" autowire="byType" scope="prototype"/>
+		
+</beans>
+ 

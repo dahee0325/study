@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- xmlns:p="http://www.springframework.org/schema/p" 를 통해 인스턴스를 바로 불러올 수 있음 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+	
+	<!-- MemberDao 객체를 bean으로 등록, 식별자는 memberDao -->
+	<bean id="memberDao" class="member.MemberDao" />
+	
+	<!-- autowire : 의존 관계 자동 설정을 해준다 -->
+	<!-- –byName : 프로퍼티의 이름과 같은 이름을 갖는 빈 객체를 설정
+		 –byType : 프로퍼티의 타입과 같은 타입을 갖는 빈 객체를 설정
+		 –constructor : 생성자 파라미터 타입과 같은 타입을 갖는 빈 객체를 생성자에 전달
+	 -->
+	<bean id="registService" class="member.MemberRegisterServi0ce" autowire="byName"/>
+	
+	<bean id="changePasswordService" class="member.ChangePasswordService" autowire="byType"/>
+		
+</beans>
+ 
