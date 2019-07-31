@@ -1,6 +1,5 @@
-package com.bitcamp.firstapp;
+package com.bit.mvc;
 
-import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -22,24 +21,20 @@ public class HomeController {
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
-	 * @throws UnsupportedEncodingException 
 	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		
 		String formattedDate = dateFormat.format(date);
-
-
+		
 		model.addAttribute("serverTime", formattedDate );
 		
-		//WEB-INF/views/home.jsp 경로를 반환
-		//return "home";
-		return "/member/index";//WEB-INF/views/member/index.jsp
+		return "home";
+		
 	}
 	
 }
