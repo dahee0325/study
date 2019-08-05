@@ -1,4 +1,4 @@
-package com.dahee.domain;
+package com.dahee.memberproject.domain;
 
 import org.springframework.web.multipart.MultipartFile;
 

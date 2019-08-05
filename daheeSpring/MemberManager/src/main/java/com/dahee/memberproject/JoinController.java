@@ -10,7 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.dahee.domain.MemberInfo;
+import com.dahee.memberproject.domain.MemberInfo;
 
 @Controller
 public class JoinController {
@@ -38,7 +38,6 @@ public class JoinController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		return "member/join";
 	}
 	

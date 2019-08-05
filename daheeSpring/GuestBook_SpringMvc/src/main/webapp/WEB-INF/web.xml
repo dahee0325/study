@@ -3,13 +3,12 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
-	<!-- The definition of the Root Spring Container shared by all Servlets 
-		and Filters -->
+	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/spring/root-context.xml</param-value>
 	</context-param>
-
+	
 	<!-- Creates the Spring Container shared by all Servlets and Filters -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -25,26 +24,25 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-
+		
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-
+	
 	<filter>
 		<filter-name>CharacterEncodingFilter</filter-name>
-		<filter-class>com.dahee.memberproject.filter.CharacterEncodingFilter</filter-class>
+		<filter-class>com.bit.guest.filter.CharacterEncodingFilter</filter-class>
 	</filter>
 
 	<filter-mapping>
 		<filter-name>CharacterEncodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-
+	
 	<servlet>
 		<servlet-name>DBCPInti</servlet-name>
-		<servlet-class>com.dahee.memberproject.jdbc.DBCPInit</servlet-class>
+		<servlet-class>com.bit.guest.jdbc.DBCPInit</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-	
 </web-app>
