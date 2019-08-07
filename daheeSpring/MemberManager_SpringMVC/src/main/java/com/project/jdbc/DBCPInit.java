@@ -1,4 +1,4 @@
-package com.dahee.memberproject.jdbc;
+package com.project.jdbc;
 
 import java.sql.DriverManager;
 
@@ -14,61 +14,61 @@ import org.apache.commons.pool2.impl.GenericObjectPool;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 
 public class DBCPInit extends HttpServlet {
+	
 	@Override
 	public void init() throws ServletException {
-
 		loadJDBCDriver();
 		initConnectionPool();
-
 	}
 
 	private void loadJDBCDriver() {
 		try {
-
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			System.out.println("Oracle Driver is loaded successfully");
+			Class.forName("com.mysql.jdbc.Driver");
+			System.out.println("MYSQL Driver is loaded successfully");
 		} catch (ClassNotFoundException ex) {
 			throw new RuntimeException("fail to load JDBC Driver", ex);
 		}
 	}
-
+	
 	private void initConnectionPool() {
-
+		
 		try {
 
-			String jdbcDriver = "jdbc:oracle:thin:@localhost:1521:orcl";
-			String username = "scott";
-			String pw = "tiger";
-
+			String jdbcDriver = "jdbc:mysql://localhost:3306/project?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC"; 
+			String username = "bit";
+			String pw = "bit";
 			ConnectionFactory connFactory = new DriverManagerConnectionFactory(jdbcDriver, username, pw);
-
+			
 			PoolableConnectionFactory poolableConnFactory = new PoolableConnectionFactory(connFactory, null);
-
+			
+			
 			poolableConnFactory.setValidationQuery("select 1");
-
+			
+			
 			GenericObjectPoolConfig poolConfig = new GenericObjectPoolConfig();
-
+			
 			poolConfig.setTimeBetweenEvictionRunsMillis(1000L * 60L * 5L);
-
+			
 			poolConfig.setTestWhileIdle(true);
-
+			
 			poolConfig.setMinIdle(4);
-
+			
 			poolConfig.setMaxTotal(50);
-
-			GenericObjectPool<PoolableConnection> connectionPool = new GenericObjectPool<>(poolableConnFactory,
-					poolConfig);
-
+			
+			GenericObjectPool<PoolableConnection> connectionPool =
+			new GenericObjectPool<>(poolableConnFactory, poolConfig);
+			
 			poolableConnFactory.setPool(connectionPool);
-
+			
 			Class.forName("org.apache.commons.dbcp2.PoolingDriver");
 			PoolingDriver driver = (PoolingDriver) DriverManager.getDriver("jdbc:apache:commons:dbcp:");
-
+			
+		
 			driver.registerPool("pool", connectionPool);
 			System.out.println("Pool is registered successfully!");
-
+			
 		} catch (Exception e) {
-			throw new RuntimeException(e);
+			  throw new RuntimeException(e);
 		}
 	}
 

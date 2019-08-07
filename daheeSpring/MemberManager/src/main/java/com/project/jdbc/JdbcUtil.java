@@ -1,4 +1,4 @@
-package com.dahee.memberproject.jdbc;
+package com.project.jdbc;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

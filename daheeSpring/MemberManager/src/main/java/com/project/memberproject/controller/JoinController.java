@@ -1,4 +1,4 @@
-package com.dahee.memberproject;
+package com.project.memberproject.controller;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,7 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.dahee.memberproject.domain.MemberInfo;
+import com.project.memberproject.domain.MemberInfo;
 
 @Controller
 public class JoinController {
