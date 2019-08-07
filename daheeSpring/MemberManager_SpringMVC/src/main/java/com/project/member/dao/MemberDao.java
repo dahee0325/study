@@ -12,6 +12,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.project.member.domain.MemberInfo;
+import com.project.member.domain.SearchParam;
 
 //이름 따로 지정안하면 memberDao 로 생성됨
 @Repository("dao")
@@ -97,7 +98,7 @@ public class MemberDao {
 		return memberList;
 	}
 
-	public int selectTotalCount(Connection conn) {
+	public int selectTotalCount(Connection conn, SearchParam searchParam) {
 
 		int totalCnt = 0;
 
@@ -105,6 +106,19 @@ public class MemberDao {
 		ResultSet rs = null;
 
 		String sql = "select count(*) from userInfo";
+
+		if (searchParam != null) {
+			sql = "select count(*) from userInfo where ";
+			if (searchParam.getStype().equals("both")) {
+				sql += " uid like '%" + searchParam.getKeyword() + "%' or uname  like '%" + searchParam.getKeyword()+ "%' ";
+			}
+			if (searchParam.getStype().equals("id")) {
+				sql += " uid  like '%" + searchParam.getKeyword() + "%'";
+			}
+			if (searchParam.getStype().equals("name")) {
+				sql += " uname  like '%" + searchParam.getKeyword() + "%' ";
+			}
+		}
 
 		try {
 			stmt = conn.createStatement();
@@ -121,6 +135,91 @@ public class MemberDao {
 		}
 
 		return totalCnt;
+	}
+
+	public List<MemberInfo> selectListById(Connection conn, int index, int count, SearchParam searchParam) {
+
+		List<MemberInfo> memberList = new ArrayList<MemberInfo>();
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		String sql = "SELECT * FROM userInfo where uid like ?  limit ?, ?";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%" + searchParam.getKeyword() + "%");
+			pstmt.setInt(2, index);
+			pstmt.setInt(3, count);
+
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				memberList.add(new MemberInfo(rs.getInt("idx"), rs.getString("uid"), rs.getString("upw"),
+						rs.getString("uname"), rs.getString("uphoto"), new Date(rs.getDate("regdate").getTime())));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return memberList;
+	}
+
+	public List<MemberInfo> selectListByName(Connection conn, int index, int count, SearchParam searchParam) {
+
+		List<MemberInfo> memberList = new ArrayList<MemberInfo>();
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		String sql = "SELECT * FROM userInfo where uname like ?  limit ?, ?";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%" + searchParam.getKeyword() + "%");
+			pstmt.setInt(2, index);
+			pstmt.setInt(3, count);
+
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				memberList.add(new MemberInfo(rs.getInt("idx"), rs.getString("uid"), rs.getString("upw"),
+						rs.getString("uname"), rs.getString("uphoto"), new Date(rs.getDate("regdate").getTime())));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return memberList;
+	}
+
+	public List<MemberInfo> selectListByBoth(Connection conn, int index, int count, SearchParam searchParam) {
+
+		List<MemberInfo> memberList = new ArrayList<MemberInfo>();
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		String sql = "SELECT * FROM userInfo where uid like ? or  uname like ?  limit ?, ?";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%" + searchParam.getKeyword() + "%");
+			pstmt.setString(2, "%" + searchParam.getKeyword() + "%");
+			pstmt.setInt(3, index);
+			pstmt.setInt(4, count);
+
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				memberList.add(new MemberInfo(rs.getInt("idx"), rs.getString("uid"), rs.getString("upw"),
+						rs.getString("uname"), rs.getString("uphoto"), new Date(rs.getDate("regdate").getTime())));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return memberList;
 	}
 
 }
