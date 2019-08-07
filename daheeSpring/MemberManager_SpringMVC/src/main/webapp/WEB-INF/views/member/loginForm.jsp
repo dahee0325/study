@@ -36,8 +36,7 @@
 						<td><input type="password" name="userPw" required></td>
 					</tr>
 					<tr>
-						<td colspan="2"><input type="submit" value="로그인"> <a
-							id="home_a" href="<c:url value="/main"/>">홈으로</a></td>
+						<td colspan="2"><input type="submit" value="로그인"> <a id="home_a" href="<c:url value="/main"/>">홈으로</a></td>
 					</tr>
 				</table>
 			</form>

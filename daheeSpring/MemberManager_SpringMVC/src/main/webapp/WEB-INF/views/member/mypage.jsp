@@ -46,6 +46,10 @@
 						<td>사    진</td>
 						<td><img src="<c:url value='/uploadfile/userphoto/${loginInfo.uPhoto}'/>">
 					</tr>
+					<tr>
+						<td colspan="2"><a id="home_a" href="<c:url value="update"/>">내 정보수정</a></td>
+					</tr>
+					
 				</table>
 		</div>
 		<!-- 컨텐츠 끝 -->
