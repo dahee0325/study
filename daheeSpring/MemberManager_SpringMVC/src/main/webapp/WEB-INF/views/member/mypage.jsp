@@ -32,11 +32,11 @@
 				<table>
 					<tr>
 						<td>아 이 디</td>
-						<td>${loginInfo.userId }</td>
+						<td>${loginInfo.uId }</td>
 					</tr>
 					<tr>
 						<td>이    름</td>
-						<td>${loginInfo.userName }</td>
+						<td>${loginInfo.uName }</td>
 					</tr>
 					<tr>
 						<td>가입일</td>
@@ -44,7 +44,7 @@
 					</tr>
 					<tr>
 						<td>사    진</td>
-						<td><img src="<c:url value='/uploadfile/userphoto/${loginInfo.userPhoto}'/>">
+						<td><img src="<c:url value='/uploadfile/userphoto/${loginInfo.uPhoto}'/>">
 					</tr>
 					<tr>
 						<td colspan="2"><a id="home_a" href="#">내 정보수정</a></td>

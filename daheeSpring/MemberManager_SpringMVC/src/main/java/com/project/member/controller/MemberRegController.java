@@ -10,13 +10,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.project.member.domain.RequestMemberRegist;
 import com.project.member.service.MemberRegService;
+import com.project.member.service.MemberRegService2;
 
 @Controller
 @RequestMapping("/member/regist")
 public class MemberRegController {
 
 	@Autowired
-	private MemberRegService registService;
+	private MemberRegService2 registService;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String getForm() {

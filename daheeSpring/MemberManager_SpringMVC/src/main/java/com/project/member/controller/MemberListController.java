@@ -9,12 +9,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.project.member.domain.ListViewData;
 import com.project.member.domain.SearchParam;
 import com.project.member.service.MemberListService;
+import com.project.member.service.MemberListService2;
 
 @Controller
 public class MemberListController {
 	
 	@Autowired
-	private MemberListService listService;
+	private MemberListService2 listService;
 	
 	@RequestMapping("/member/memberList")
 	public String memberList(Model model,@RequestParam(value = "p", defaultValue = "1") int pageNumber, @RequestParam(value = "stype", required = false) String stype, @RequestParam(value = "keyword", required = false) String keyword) {

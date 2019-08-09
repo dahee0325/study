@@ -7,6 +7,36 @@
 <meta charset="UTF-8">
 <title>MemberManager : 회원가입</title>
 <link href="<c:url value="/css/index.css"/>" rel="stylesheet" type="text/css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script>
+$(document).ready(function () {
+
+		$('#idbox').focusout(function() {
+        		
+        		$('#idchkMsg').html("");
+        		
+        		$.ajax({
+                    url: 'idCheck2',
+                    type: 'GET',
+                    data: {
+                        id: $('#idbox').val()
+                    },
+                    success: function (data) {
+                    	if(data=='Y') {
+                    		$('#idchkMsg').html('사용가능한 아이디입니다.');
+                    		$('#idchkMsg').css('color','green');
+                    	}else if(data== 'N') {
+                    		$('#idchkMsg').html('사용할수없는 아이디입니다.');
+                    		$('#idchkMsg').css('color','red');
+                    	}else {
+                    		$('#idchkMsg').html('필수사항입니다.');
+                    		$('#idchkMsg').css('color','red');
+                    	}
+                    }
+                });
+        	});
+});
+    </script>
 </head>
 <body>
 	<div id="wrap">
@@ -26,7 +56,8 @@
 				<table>
 					<tr>
 						<td>아 이 디</td>
-						<td><input type="text" name="userId" required></td>
+						<td><input id="idbox" type="text" name="userId" required>
+						<h6 id="idchkMsg"></h6></td>
 					</tr>
 					<tr>
 						<td>비밀번호</td>

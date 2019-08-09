@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bit.guest.model.MessageListView;
 import com.bit.guest.service.GetMessageListService2;
@@ -22,8 +23,15 @@ public class GuestListController {
 		MessageListView listView = getMessageListService.getMessageList(pageNum);
 		model.addAttribute("viewData", listView);
 		
-		
 		return "guest/list";
 	}
+	
+	@RequestMapping("/guest/listJson")
+	@ResponseBody
+	public MessageListView getListJson(@RequestParam(value = "page", defaultValue = "1") int pageNumber,Model model) {
 		
+		MessageListView listView = getMessageListService.getMessageList(pageNumber);
+		
+		return listView;
+	}
 }

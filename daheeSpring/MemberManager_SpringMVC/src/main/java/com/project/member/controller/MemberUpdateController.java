@@ -12,13 +12,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.project.member.domain.MemberInfo;
 import com.project.member.domain.RequestMemberEdit;
 import com.project.member.service.MemberEditService;
+import com.project.member.service.MemberEditService2;
 
 @Controller
 @RequestMapping("/member/edit")
 public class MemberUpdateController {
 	
 	@Autowired
-	private MemberEditService editService;
+	private MemberEditService2 editService;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String editForm(
@@ -37,12 +38,10 @@ public class MemberUpdateController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String edit(RequestMemberEdit edit, HttpServletRequest request) {
 		
-		int rCnt = 0;
-		rCnt = editService.edit(edit, edit.getOldFile(), request);
+		editService.edit(edit, edit.getOldFile(), request);
 		
 		return "redirect:/member/memberList";
 		
 	}
-	
 	
 }

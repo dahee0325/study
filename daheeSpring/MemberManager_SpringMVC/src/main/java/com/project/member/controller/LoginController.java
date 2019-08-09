@@ -10,13 +10,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.project.member.service.MemberLoginService;
+import com.project.member.service.MemberLoginService2;
 
 @Controller
 @RequestMapping("/member/login")
 public class LoginController {
 	
 	@Autowired
-	private MemberLoginService loginService;
+	private MemberLoginService2 loginService;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String loginForm(HttpServletRequest request) {
