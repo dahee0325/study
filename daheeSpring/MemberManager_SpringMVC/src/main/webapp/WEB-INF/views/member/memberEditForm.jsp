@@ -26,23 +26,20 @@
 				<table>
 					<tr>
 						<td>아 이 디</td>
-						<td>${ loginInfo.uId }</td>
+						<td><input type="hidden" name="idx" value="${ editData.idx }">${ editData.userId }</td>
 					</tr>
 					<tr>
-						<td>현재 비밀번호</td>
-						<td><input type="password" name="userPw" value="" required></td>
-					</tr>
-					<tr>
-						<td>수정할 비밀번호486</td>
-						<td><input type="password" name="userPw" value="" required></td>
+						<td>비밀번호</td>
+						<td><input type="password" name="uPW" required></td>
 					</tr>
 					<tr>
 						<td>이    름</td>
-						<td><input type="text" name="userName" value="${loginInfo.uName }" required></td>
+						<td><input type="text" name="uName" value="${editData.userName }" required></td>
 					</tr>
 					<tr>
 						<td>사    진</td>
-						<td><input type="file" name="userPhoto"></td>
+						<td><input type="text" name="oldFile" value="${editData.userPhoto}" readonly>
+						<input type="file" name="uPhoto"></td>
 					</tr>
 					<tr>
 						<td colspan="2"><input type="submit" value="수정">

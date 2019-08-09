@@ -12,13 +12,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.bit.guest.excrption.InvalidMessagePasswordException;
 import com.bit.guest.excrption.MessageNotFoundException;
 import com.bit.guest.service.DeleteMessageService;
+import com.bit.guest.service.DeleteMessageService2;
 
 @Controller
 @RequestMapping("/guest/delete")
 public class GuestDeleteController {
 	
 	@Autowired
-	private DeleteMessageService deleteService;
+	private DeleteMessageService2 deleteService;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String getDeleteForm() {

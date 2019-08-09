@@ -84,6 +84,7 @@ td {
 					<td>이름</td>
 					<td>사진</td>
 					<td>가입일</td>
+					<td>관리</td>
 				</tr>
 
 				<c:forEach items="${viewData.memberList}" var="memberInfo" varStatus="stat">
@@ -95,6 +96,8 @@ td {
 						<td>${memberInfo.userName}</td>
 						<td><img src="<c:url value='/uploadfile/userphoto/${memberInfo.userPhoto}'/>" height="30"></td>
 						<td><fmt:formatDate value="${memberInfo.regDate}" pattern="yyyy.MM.dd" /></td>
+						<td><a href="edit?memberId=${memberInfo.idx}">수정</a>
+						<a href="#" onclick="delMember(${memberInfo.idx})">삭제</a>
 					</tr>
 				</c:forEach>
 
@@ -117,4 +120,13 @@ td {
 		<!-- footer 끝 -->
 	</div>
 </body>
+<script>
+	function delMember(idx) {
+		
+		if(confirm("삭제하시겠습니까?")){
+			location.href = 'delete?memberId='+idx;
+		}
+		
+	}
+</script>
 </html>

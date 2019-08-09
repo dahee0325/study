@@ -11,6 +11,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.project.jdbc.JdbcUtil;
 import com.project.member.domain.MemberInfo;
 import com.project.member.domain.SearchParam;
 
@@ -110,7 +111,8 @@ public class MemberDao {
 		if (searchParam != null) {
 			sql = "select count(*) from userInfo where ";
 			if (searchParam.getStype().equals("both")) {
-				sql += " uid like '%" + searchParam.getKeyword() + "%' or uname  like '%" + searchParam.getKeyword()+ "%' ";
+				sql += " uid like '%" + searchParam.getKeyword() + "%' or uname  like '%" + searchParam.getKeyword()
+						+ "%' ";
 			}
 			if (searchParam.getStype().equals("id")) {
 				sql += " uid  like '%" + searchParam.getKeyword() + "%'";
@@ -222,4 +224,75 @@ public class MemberDao {
 		return memberList;
 	}
 
+	public MemberInfo selectMemberByIdx(Connection conn, int id) {
+
+		MemberInfo memberInfo = null;
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		String sql = "select * from userInfo where idx=?";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, id);
+			rs = pstmt.executeQuery();
+			if (rs != null && rs.next()) {
+				memberInfo = new MemberInfo(rs.getInt("idx"), rs.getString("uid"), rs.getString("upw"),
+						rs.getString("uname"), rs.getString("uphoto"), new Date(rs.getTimestamp("regdate").getTime()));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+
+		return memberInfo;
+	}
+
+	public int memberUpdate(Connection conn, MemberInfo memberInfo) {
+
+		System.out.println(">>>>>>>>>>>> " + memberInfo);
+		int rCnt = 0;
+		PreparedStatement pstmt = null;
+		String sql = "update userInfo set uname=?, upw=?, uphoto=? where idx=?";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberInfo.getuserName());
+			pstmt.setString(2, memberInfo.getuserPw());
+			pstmt.setString(3, memberInfo.getuserPhoto());
+			pstmt.setInt(4, memberInfo.getIdx());
+			rCnt = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return rCnt;
+	}
+
+	public int memberDelete(Connection conn, int id) {
+
+		int rCnt = 0;
+
+		PreparedStatement pstmt = null;
+
+		String sql = "delete from userInfo where idx=?";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, id);
+
+			rCnt = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return rCnt;
+	}
 }

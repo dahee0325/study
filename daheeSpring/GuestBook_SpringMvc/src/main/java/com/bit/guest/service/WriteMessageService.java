@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bit.guest.dao.MessageDao;
+import com.bit.guest.dao.MessageJdbcTemplateDao;
 import com.bit.guest.jdbc.ConnectionProvider;
 import com.bit.guest.model.Message;
 
