@@ -21,7 +21,7 @@ a:hover {
 div {
 	padding:10px;
 	border: 1px solid gray;
-	width: 200px;
+	width: 250px;
 	margin-bottom: 10px;
 }
 
