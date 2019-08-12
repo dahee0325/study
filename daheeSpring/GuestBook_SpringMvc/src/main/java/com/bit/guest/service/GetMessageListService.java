@@ -17,7 +17,7 @@ import com.bit.guest.model.Message;
 import com.bit.guest.model.MessageListView;
 
 @Service("getMessageListService")
-public class GetMessageListService implements GuestBookService {
+public class GetMessageListService {
 
 	
 		@Autowired

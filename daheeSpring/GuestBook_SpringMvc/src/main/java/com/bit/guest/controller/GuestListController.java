@@ -9,13 +9,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bit.guest.model.MessageListView;
 import com.bit.guest.service.GetMessageListService2;
+import com.bit.guest.service.GetMessageListService3;
+import com.bit.guest.service.GetMessageListService4;
 
 
 @Controller
 public class GuestListController {
 	
 	@Autowired
-	private GetMessageListService2 getMessageListService;
+	private GetMessageListService4 getMessageListService;
 	
 	@RequestMapping("/guest/list")
 	public String getList(@RequestParam(value = "page", defaultValue = "1") int pageNum, Model model) {

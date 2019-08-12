@@ -1,25 +1,35 @@
 package com.bit.guest.service;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bit.guest.dao.MessageJdbcTemplateDao;
+import com.bit.guest.dao.MessageSessionDao;
+import com.bit.guest.dao.MessageSessionTemplateDao;
 import com.bit.guest.model.Message;
 import com.bit.guest.model.MessageListView;
 
-@Service("getMessageListService2")
-public class GetMessageListService2 {
+@Service("getMessageListService4")
+public class GetMessageListService4 {
 
 	@Autowired
-	private MessageJdbcTemplateDao dao;
-
+	private SqlSessionTemplate template;
+	
+	private MessageSessionDao dao; 
+	
 	// 1. 한페이지에 보여줄 게시글의 개수
 	private static final int MESSAGE_COUNT_PER_PAGE = 3;
 
 	public MessageListView getMessageList(int pageNumber) {
 
+		// dao 생성
+		dao = template.getMapper(MessageSessionDao.class);
+		
 		// 2. 현재 페이지 번호
 		int currentPageNumber = pageNumber;
 
@@ -37,8 +47,10 @@ public class GetMessageListService2 {
 			// 있다면
 			firstRow = (pageNumber - 1) * MESSAGE_COUNT_PER_PAGE + 1;
 			endRow = firstRow + MESSAGE_COUNT_PER_PAGE - 1;
-
-			messageList = dao.selectList(firstRow, endRow);
+			Map<String, Object> params = new HashMap<String, Object>();
+			params.put("firstRow", firstRow);
+			params.put("endRow", endRow);
+			messageList = dao.selectList(params);
 
 		}else {
 			currentPageNumber = 0;

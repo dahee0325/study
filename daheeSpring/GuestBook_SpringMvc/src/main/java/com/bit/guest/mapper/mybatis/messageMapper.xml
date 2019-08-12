@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace는 필수 속성 ! : dao 에서 식별하기 위한 이름이기 때문에-->
+<mapper namespace="com.bit.guest.dao.MessageSessionDao">
+	<!-- id 명과 인터페이스 메서드 명과 같아야지 연결이 가능하다 -->
+	
+	<insert id="insert" parameterType="com.bit.guest.model.Message">
+		insert into guestbook_message (message_id, guest_name, password, message)
+		values(gm_mid_seq.nextval,#{guestName}, #{password},#{message})
+	</insert>
+	
+	<select id="select" resultType="com.bit.guest.model.Message" resultMap="messageResultmap">
+		select * from guestbook_message where message_id=#{id}
+	</select>
+	
+	<select id="selectCount" resultType="int">
+		select count(*) from guestbook_message
+	</select>
+	
+	<resultMap id="messageResultmap" type="com.bit.guest.model.Message">
+		<id property="id" column="message_id" />
+		<result property="guestName" column="guest_name"/>
+		<result property="password" column="password"/>
+		<result property="message" column="message"/>
+	</resultMap>
+	
+	<!-- 여러개의 행들 중에서 하나의 행을 Message객체로 저장을 하고 리스트로 반환해줌 -->
+	<select id="selectList" parameterType="map" resultType="com.bit.guest.model.Message" resultMap="messageResultmap">
+		<!-- 크다 작다를 표시하는 <> 를 사용하려면  <![CDATA[]]>를 사용해야함-->
+		<!-- map 이 가지고 있는 키값  endRow,firstRow-->
+		<![CDATA[
+		select message_id, guest_name, password, message from (
+		select rownum rnum, message_id, guest_name, password, message from (
+		select * from guestbook_message m order by m.message_id desc
+		) where rownum <= #{endRow}) where rnum >= #{firstRow}
+		]]>
+	</select>
+	
+	<delete id="deleteMessage">
+		delete from guestbook_message where message_id=#{id}
+	</delete>
+</mapper>

@@ -9,12 +9,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.bit.guest.model.RequestGuestWrite;
 import com.bit.guest.service.WriteMessageService;
 import com.bit.guest.service.WriteMessageService2;
+import com.bit.guest.service.WriteMessageService3;
+import com.bit.guest.service.WriteMessageService4;
 
 @Controller
 public class GuestWriteController {
 	
 	@Autowired
-	private WriteMessageService2 writeService;
+	private WriteMessageService4 writeService;
 	
 	@RequestMapping("/guest/writeForm")
 	public String getWriteForm() {

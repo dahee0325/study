@@ -10,7 +10,7 @@ import com.bit.guest.excrption.MessageNotFoundException;
 import com.bit.guest.model.Message;
 
 @Service("deleteService2")
-public class DeleteMessageService2 implements GuestBookService {
+public class DeleteMessageService2 {
 	
 	@Autowired
 	private MessageJdbcTemplateDao dao;

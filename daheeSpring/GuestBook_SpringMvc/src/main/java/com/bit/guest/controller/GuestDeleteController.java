@@ -13,13 +13,15 @@ import com.bit.guest.excrption.InvalidMessagePasswordException;
 import com.bit.guest.excrption.MessageNotFoundException;
 import com.bit.guest.service.DeleteMessageService;
 import com.bit.guest.service.DeleteMessageService2;
+import com.bit.guest.service.DeleteMessageService3;
+import com.bit.guest.service.DeleteMessageService4;
 
 @Controller
 @RequestMapping("/guest/delete")
 public class GuestDeleteController {
 	
 	@Autowired
-	private DeleteMessageService2 deleteService;
+	private DeleteMessageService4 deleteService;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String getDeleteForm() {
