@@ -167,13 +167,14 @@
 			<version>1.2</version>
 		</dependency>
 
-		<!-- mybatis 설정 -->
+		<!-- my batis 설정 -->
 		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
 			<version>3.4.1</version>
-		</dependency> <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>

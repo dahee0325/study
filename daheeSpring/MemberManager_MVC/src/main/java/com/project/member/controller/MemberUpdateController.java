@@ -13,13 +13,14 @@ import com.project.member.domain.MemberInfo;
 import com.project.member.domain.RequestMemberEdit;
 import com.project.member.service.MemberEditService;
 import com.project.member.service.MemberEditService2;
+import com.project.member.service.MemberEditService3;
 
 @Controller
 @RequestMapping("/member/edit")
 public class MemberUpdateController {
 	
 	@Autowired
-	private MemberEditService2 editService;
+	private MemberEditService3 editService;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String editForm(

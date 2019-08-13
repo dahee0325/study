@@ -7,12 +7,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.project.member.service.MemberDeleteService;
 import com.project.member.service.MemberDeleteService2;
+import com.project.member.service.MemberDeleteService3;
 
 @Controller
 public class MemberDeleteController {
 	
 	@Autowired
-	private MemberDeleteService2 deleteService;
+	private MemberDeleteService3 deleteService;
 	
 	@RequestMapping("/member/delete")
 	public String delete(

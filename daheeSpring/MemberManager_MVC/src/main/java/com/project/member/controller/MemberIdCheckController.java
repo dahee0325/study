@@ -8,12 +8,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.project.member.service.MemberRegService2;
+import com.project.member.service.MemberRegService3;
 
 @Controller
 public class MemberIdCheckController {
 
 	@Autowired
-	private MemberRegService2 registService;
+	private MemberRegService3 registService;
 	
 	@RequestMapping("/member/idCheck1")
 	public String idCheck1(@RequestParam("id") String id, Model model) {
