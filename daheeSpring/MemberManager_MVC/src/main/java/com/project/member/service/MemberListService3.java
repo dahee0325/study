@@ -7,11 +7,9 @@ import java.util.Map;
 import javax.inject.Inject;
 
 import org.mybatis.spring.SqlSessionTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project.member.dao.MemberDaoInterface;
-import com.project.member.dao.MemberJdbcTemplateDao;
 import com.project.member.domain.ListViewData;
 import com.project.member.domain.MemberInfo;
 import com.project.member.domain.SearchParam;
@@ -27,7 +25,7 @@ public class MemberListService3 {
 	@Inject
 	private SqlSessionTemplate template;
 
-	final int MEMBER_CNT_List = 3;
+	final int MEMBER_CNT_List = 5;
 
 	public ListViewData getListData(int currentPageNumber, SearchParam searchParam) {
 
@@ -77,4 +75,14 @@ public class MemberListService3 {
 
 	}
 
+	
+	public List<MemberInfo> getAllList() {
+
+		dao = template.getMapper(MemberDaoInterface.class);
+		
+		List<MemberInfo> list = dao.selectAllList();
+		
+		return list;
+	}
+	
 }

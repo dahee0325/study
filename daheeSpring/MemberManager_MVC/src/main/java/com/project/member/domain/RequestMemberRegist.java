@@ -35,15 +35,13 @@ public class RequestMemberRegist {
 	public void setUserPhoto(MultipartFile userPhoto) {
 		this.userPhoto = userPhoto;
 	}
-	/*
-	 * public Date getRegDate() { return regDate; } public void setRegDate(Date
-	 * regDate) { this.regDate = regDate; }
-	 */
 	@Override
 	public String toString() {
 		return "RequestMemberRegist [userId=" + userId + ", userPw=" + userPw + ", userName=" + userName
-				+ ", userPhoto=" + userPhoto.getOriginalFilename() + "]";
+				+ ", userPhoto=" + userPhoto + "]";
 	}
+	
+	
 	
 	public MemberInfo toMemberInfo() {
 		

@@ -2,12 +2,15 @@ package com.project.member.domain;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 // usebean Class
 public class MemberInfo {
 
 	// 각 변수의 저근 제어지시자는 private
 	private int idx;
 	private String userId;
+	@JsonIgnore
 	private String userPw;
 	private String userName;
 	private String userPhoto;

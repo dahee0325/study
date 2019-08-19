@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+</head>
+<style>
+* {
+	margin: 0;
+	padding: 0;
+}
+
+h2{
+	padding: 20px;
+	text-align: center;
+}
+
+#wrap {
+	margin: auto;
+	width: 1100px;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+	display: block;
+	border: 1px solid #DDD;
+	width: 100.5%;
+	text-align: center;
+	font-size: 13px;
+	padding: 7px 0;
+}
+
+#header {
+	text-align: right;
+	padding: 0 10px 30px 0;
+}
+
+#form_wrap {
+	width: 500px;
+	margin: auto;
+}
+
+#form_wrap input {
+	border : 0;
+	border-bottom: 1px solid #DDD;
+	background-color: white;
+	width: 100%;
+	padding: 3px 0 3px 5px;
+	margin: 5px 0;
+}
+
+#form_wrap input[type=submit] {
+	border : 1px solid #DDD;
+	height: 35px;
+	width: 101%;
+}
+
+#form_wrap input[type=submit]:hover, a:hover {
+	background-color: black;
+	color: white;
+	cursor: pointer;
+}
+</style>
+<body>
+	<div id="wrap">
+		<div id="header">
+			<h2>회원 가입</h2>
+		</div>
+		<div id="form_wrap">
+		<form id="form">
+			아이디 <input type="text" name="uId" id="uId"> <br>
+			비밀번호
+			<input type="text" name="uPw" id="uPw"> <br>
+			이름 <input type="text" name="uName" id="uName"><br>
+			<input type="submit" value="회원가입">
+		</form>
+		<a href="index.html">리스트</a>
+		</div>
+	</div>
+	<script>
+
+	$(document).ready(function(){
+        
+        $('#form').submit(function()  {
+           
+            $.ajax({
+                url : 'http://localhost:8080/member/rest/members',
+                type : 'POST',
+                //requestBody 를 사용하지 않아서 JSON방식으로 처리 X
+                //파라미터 형식으로 전달
+                data : {
+                	userId : $('#uId').val(),
+                	userPw : $('#uPw').val(),
+                	userName : $('#uName').val()
+        	    },
+                success : function(data){
+                	if(data=='success'){
+                        alert('회원가입되었습니다.');
+                        location.href="index.html";
+                    }   
+                }
+            });
+            
+            return false;
+        });
+
+		
+	});
+</script>
+
+</body>
+</html>

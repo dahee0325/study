@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<style>
+* {
+	margin: 0;
+	padding: 0;
+}
+
+h2{
+	padding: 20px;
+	text-align: center;
+}
+
+#header {
+	text-align: right;
+	padding: 0 10px 30px 0;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+a:hover {
+	font-weight: bold;
+}
+
+div#memberlist {
+	overflow: hidden;
+}
+
+div.card {
+	float: left;
+	width: 29.5%;
+	border: 1px solid #ddd;
+	margin: 0 10px 10px 10px;
+	padding: 10px;
+}
+
+#uId {
+	border: 0;
+	font-weight: bold;
+}
+
+#wrap {
+	margin: auto;
+	width: 1100px;
+}
+
+button, input[type=submit] {
+	width: 100%;
+	border: 0;
+	border: 1px solid #ddd;
+	text-align: center;
+	color: black;
+	background-color: white;
+	padding: 5px 0;
+	margin: 3px 0;
+}
+
+button:hover, input[type=submit]:hover {
+	background-color: black;
+	color: white;
+	cursor: pointer;
+}
+
+#editFrame {
+	border: 1px solid #ddd;
+	margin: 10px;
+	padding: 10px;
+}
+
+input {
+	font-size: 14px;
+	border: 0;
+	border-bottom: 1px solid #ddd;
+	width: 150px;
+}
+</style>
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+	
+	<h2>회원 리스트</h2>
+	<a href="rest-regmember2.html">회원가입</a>
+	</div>
+	<div id="editFrame" style="display: none">
+		<form id="editForm">
+			<input type="hidden" name="idx" id="idx">
+			ID : <input type="text" name="uId" id="uId" readonly> <br>
+			PW : <input type="text" name="uPW" id="uPW" required> <br>
+			NAME : <input type="text" name="uName" id="uName" required><br>
+			<input type="submit" value="회원수정">
+
+		</form>
+	</div>
+	<div id="memberlist"></div>
+</div>
+	<script>
+		$(document).ready(function() {
+			list();
+			
+			 $('#editForm').submit(function(){
+  
+		            $.ajax({
+		                url : 'http://localhost:8080/member/rest/members/'+$('#idx').val(),
+		                type : 'PUT',
+		                data : JSON.stringify({uId : $('#uId').val(), uPW : $('#uPW').val(), uName : $('#uName').val()}),
+		                contentType : 'application/json; charset=utf-8',                
+		                success : function(data){
+		                    if(data == 'success') {
+		                        alert('수정되었습니다.');
+		                        $('#editFrame').css('display', 'none');
+		                        list();
+		                    }
+		                },
+		                error : function(e){
+		                    alert('error');
+		                }
+		            });
+		            
+		            
+		            return false;
+		        });
+		});
+
+		function del(idx) {
+
+			if (confirm('삭제하시겠습니까?')) {
+				$.ajax({
+					url : 'http://localhost:8080/member/rest/members/' + idx,
+					type : 'DELETE',
+					success : function(data) {
+						//alert(JSON.stringify(data));
+						if (data == 'success') {
+							alert('삭제되었습니다');
+							list();
+						}
+					}
+				});
+
+			}
+
+		}
+		
+		function edit(idx) {
+
+				$.ajax({
+					url : 'http://localhost:8080/member/rest/members/edit/' + idx,
+					type : 'PUT',
+					success : function(data) {
+						alert(data);
+					}
+				});
+
+
+		}
+
+		function list() {
+
+			$.ajax({
+				url : 'http://localhost:8080/member/rest/members',
+				type : 'GET',
+				success : function(data) {
+					//alert(JSON.stringify(data));
+
+					var html = '';
+
+					for (var i = 0; i < data.length; i++) {
+						html += '<div class="card">\n';
+						html += 'idx : ' + data[i].idx + ' <br>\n';
+						html += 'uId : ' + data[i].userId + ' <br>\n';
+						html += 'uName : ' + data[i].userName + ' <br>\n';
+						html += 'uPhoto : ' + data[i].userPhoto + '<br>\n';
+						html += '<button onclick="del(' + data[i].idx
+								+ ')">삭제하기</button><br>\n';
+						html += '<button onclick="editPreSet(' + data[i].idx
+								+ ')">수정하기</button><br>\n';
+						html += '</div>\n';
+					}
+
+					$('#memberlist').html(html);
+				}
+
+			});
+
+		}
+		
+		function editPreSet(idx){
+	        
+	        $('#editFrame').css('display', 'block');
+	        
+	           $.ajax({
+	                url : 'http://localhost:8080/member/rest/members/'+idx,
+	                type : 'GET',
+	                success : function(data){
+	                    $('#idx').val(idx);
+	                    $('#uId').val(data.userId);
+	                    $('#uName').val(data.userName);
+	                }
+	            });
+	           
+	    }
+		
+		
+		
+	</script>
+
+</body>
+</html>

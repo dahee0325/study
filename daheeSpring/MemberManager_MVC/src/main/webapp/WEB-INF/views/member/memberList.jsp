@@ -124,7 +124,7 @@ td {
 	function delMember(idx) {
 		
 		if(confirm("삭제하시겠습니까?")){
-			location.href = 'delete?memberId='+idx;
+			location.href = 'delete/'+idx;
 		}
 		
 	}

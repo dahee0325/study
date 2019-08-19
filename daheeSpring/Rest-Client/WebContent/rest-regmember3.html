@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+</head>
+<body>
+	<h1>회원 가입</h1>
+	<a href="index.html">리스트</a>
+	<hr>
+	<form id="form">
+        아이디 <input type="text" name="userId" id="uId"> <br>
+        비밀번호 <input type="text" name="userPw" id="uPw"> <br>
+        이름 <input type="text" name="userName" id="uName"><br>
+        <input type="submit" value="회원가입">
+        
+    </form>
+    
+<script>
+
+	$(document).ready(function(){
+        
+        $('#form').submit(function()  {
+                   	
+            $.ajax({
+                url : 'http://localhost:8080/member/rest/members',
+                type : 'POST',
+                data : $('#form').serialize(),
+                success : function(data){
+                	if(data=='success'){
+                        alert('회원가입되었습니다.');
+                        location.href="index.html";
+                    }   
+                }
+            });
+            
+            return false;
+        });
+
+		
+	});
+</script>
+
+</body>
+</html>
