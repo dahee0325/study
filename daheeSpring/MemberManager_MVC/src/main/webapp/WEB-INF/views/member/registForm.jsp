@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>MemberManager : 회원가입</title>
-<link href="<c:url value="/css/index.css"/>" rel="stylesheet" type="text/css">
+<link href="<c:url value='/css/index.css'/>" rel="stylesheet" type="text/css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script>
 $(document).ready(function () {
@@ -56,7 +56,7 @@ $(document).ready(function () {
 				<table>
 					<tr>
 						<td>아 이 디</td>
-						<td><input id="idbox" type="text" name="userId" required>
+						<td><input id="idbox" type="email" name="userId" required>
 						<h6 id="idchkMsg"></h6></td>
 					</tr>
 					<tr>

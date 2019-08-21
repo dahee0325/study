@@ -8,8 +8,7 @@
 <meta charset="UTF-8">
 <title>MemberManager : 회원리스트</title>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<link href="<c:url value="/css/index.css"/>" rel="stylesheet"
-	type="text/css">
+<link href="<c:url value='/css/index.css'/>" rel="stylesheet" type="text/css">
 <style>
 table {
 	border-collapse: collapse;

@@ -1,12 +1,20 @@
 package com.project.member.domain;
 
 import java.util.Date;
+import java.util.Random;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 // usebean Class
 public class MemberInfo {
-
+/*
+	2019.08.20
+	verify 컬럼 추가, 	code 추가
+	verify : 인증 여부 코드
+	code : 난수 코드
+*/
+	
+// usebean Class
 	// 각 변수의 저근 제어지시자는 private
 	private int idx;
 	private String userId;
@@ -15,10 +23,14 @@ public class MemberInfo {
 	private String userName;
 	private String userPhoto;
 	private Date regDate;
-
+	private char verify;
+	@JsonIgnore
+	private String code;
+	
 	// default 생성자 필수
 	public MemberInfo() {
 		this.regDate = new Date();
+		getRandomSting();
 	}
 
 	public MemberInfo(String userId, String userPw, String userName, String userPhoto) {
@@ -28,6 +40,7 @@ public class MemberInfo {
 		this.userName = userName;
 		this.userPhoto = userPhoto;
 		this.regDate = new Date();
+		getRandomSting();
 	}
 
 	public MemberInfo(int idx, String userId, String userPw, String userName, String userPhoto, Date regDate) {
@@ -38,6 +51,7 @@ public class MemberInfo {
 		this.userName = userName;
 		this.userPhoto = userPhoto;
 		this.regDate = regDate;
+		getRandomSting();
 	}
 
 	// 변수들의 Getter/Setter 시작
@@ -89,12 +103,29 @@ public class MemberInfo {
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
+		
+	public char getVerify() {
+		return verify;
+	}
 
+	public void setVerify(char verify) {
+		this.verify = verify;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	
 	// 데이터 확인을 위한 toString 오버라이딩
 	@Override
 	public String toString() {
-		return "MemberInfo [idx=" + idx + ", userId=" + userId + ", userPw=" + userPw + ", userName=" + userName + ", userPhoto=" + userPhoto
-				+ ", regDate=" + regDate + "]";
+		return "MemberInfo [idx=" + idx + ", uId=" + userId + ", uPW=" + userPw + ", uName=" + userName + ", uPhoto=" + userPhoto
+				+ ", regDate=" + regDate + ", verify=" + verify + ", code=" + code + "]";
 	}
 
 	// MemberInfo 객체 -> LoginInfo 객체 반환
@@ -110,4 +141,24 @@ public class MemberInfo {
 		return userPw != null && userPw.trim().length() > 0 && userPw.equals(pw);
 	}
 
+	// 2019.08.20 추가
+		// 영문 + 숫자 난수 발생
+		private void getRandomSting() {
+			
+			Random r = new Random(System.nanoTime());
+			StringBuffer sb = new StringBuffer();
+			
+			for(int i=0 ; i<20 ; i++ ) {
+				if(r.nextBoolean()) {
+					sb.append(r.nextInt(10));
+				} else {
+					sb.append((char)(r.nextInt(26)+97));
+				}
+			}
+			
+			setCode(sb.toString());
+			
+			//return  sb.toString();	
+		}
+	
 }

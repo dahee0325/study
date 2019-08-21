@@ -10,10 +10,11 @@
 		<c:if test="${ loginInfo ne null }">
 		<li><a href="<c:url value="/member/logout" />">로그아웃</a></li>
 		</c:if>
-		<li><a href="<c:url value="/member/mypage" />">마이페이지</a></li>
+		<li><a href="<c:url value="/member/mypage" />">마이페이지1</a></li>
+		<li><a href="<c:url value="/member/mypage/mypage" />">마이페이지2</a></li>
 		<li><a href="<c:url value="/member/memberList" />">회원리스트</a></li>
-		<li><a href="<c:url value='/member/memberListJson' />">JSON</a></li>
-		<li><a href="<c:url value='/member/memberListJson2' />">JSON2</a></li>
+		<li><a href="<c:url value='/member/json/memberListJson' />">JSON</a></li>
+		<li><a href="<c:url value='/member/json/memberListJson2' />">JSON2</a></li>
 		<li><a href="<c:url value="#" />">회원탈퇴</a></li>
 	</ul>
 </div>

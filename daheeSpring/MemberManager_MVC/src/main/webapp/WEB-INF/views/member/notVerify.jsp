@@ -5,11 +5,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>MemberManager : 로그인</title>
+<title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <link href="<c:url value='/css/index.css'/>" rel="stylesheet" type="text/css">
-<style>
-</style>
 </head>
 <body>
 	<div id="wrap">
@@ -23,35 +21,41 @@
 
 		<!-- 컨텐츠 시작 -->
 		<div id="contents">
-			<h3>로그인</h3>
-			<hr>
-			<form method="post">
-				<table>
-					<tr>
-						<td>아이디</td>
-						<td><input type="text" name="userId" required></td>
-					</tr>
-					<tr>
-						<td>비밀번호</td>
-						<td><input type="password" name="userPw" required></td>
-					</tr>
-					<tr>
-						<td colspan="2">
-							<input type="submit" value="로그인">
-							<a id="home_a" href="<c:url value="/main"/>">홈으로</a>
-							<a href="<c:url value="/member/pwFind"/>">비밀번호 찾기</a>
-						</td>
-						
-					</tr>
-				</table>
-			</form>
+			<h1>
+				이메일 미인증 회원 입니다.<br>이메일 인증 후 다시 로그인 해 주세요.
+			</h1>
+			<h3>
+				<a href="#" id="reMailSend">이메일 다시보내기 (${reEmail})</a>
+			</h3>
 		</div>
 		<!-- 컨텐츠 끝 -->
-
 
 		<!-- footer 시작 -->
 		<%@ include file="/WEB-INF/views/frame/footer.jsp"%>
 		<!-- footer 끝 -->
+
 	</div>
+	<script>
+		$(document).ready(function() {
+			$('#reMailSend').click(function() {
+
+				$.ajax({
+					url : 'verify/reMailSend',
+					type : 'post',
+					data : {
+						email : '${reEmail}'
+					},
+					success : function(data) {
+						if (data == 'success') {
+							alert('메일이 발송 되었습니다.');
+						}
+					}
+
+				});
+
+				return false;
+			});
+		});
+	</script>
 </body>
 </html>

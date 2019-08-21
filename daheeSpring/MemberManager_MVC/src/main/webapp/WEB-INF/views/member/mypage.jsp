@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>MemberManager : 마이페이지</title>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<link href="<c:url value="/css/index.css"/>" rel="stylesheet" type="text/css">
+<link href="<c:url value='/css/index.css'/>" rel="stylesheet" type="text/css">
 <style>
 	img {
 		width: 150px;

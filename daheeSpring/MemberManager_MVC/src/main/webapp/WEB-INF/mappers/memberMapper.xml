@@ -16,6 +16,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="userName" column="uname" />
 		<result property="userPhoto" column="uphoto" />
 		<result property="regDate" column="date" />
+		<!-- verify, code 추가 -->
+		<result property="verify" column="verify" />
+		<result property="code" column="code" />
 	</resultMap>
 
 	<!-- 회원로그인 -->
@@ -31,10 +34,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<!-- 회원가입 -->
-	<insert id="insertMember"
-		parameterType="com.project.member.domain.MemberInfo">
-		insert into userinfo (uid, uname, upw, uphoto) values
-		(#{userId},#{userName},#{userPw},#{userPhoto})
+	<!-- 2019.08.20 컬럼 추가 입력 -->
+	<insert id="insertMember" parameterType="com.project.member.domain.MemberInfo">
+		
+		insert into userinfo (uid, uname, upw, uphoto, code) values
+		(#{userId},#{userName},#{userPw},#{userPhoto},#{code})
+		
 	</insert>
 
 	<!-- 회원 정보 수정을 위한 정보 획득 -->
@@ -116,6 +121,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectAllList" resultMap="resultMemberInfo">
 		select * from userinfo order by uname
 	</select>
+	
+	<!-- 인증된 회원 처리 -->
+	<update id="verify">
+		update userinfo set verify='Y' 
+		where uid=#{param1} and code=#{param2} 
+	</update>
+	
 </mapper>
 
 

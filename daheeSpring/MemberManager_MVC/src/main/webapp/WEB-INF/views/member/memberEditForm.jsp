@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>MemberManager : 정보수정</title>
-<link href="<c:url value="/css/index.css"/>" rel="stylesheet" type="text/css">
+<link href="<c:url value='/css/index.css'/>" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<div id="wrap">

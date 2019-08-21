@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
 import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project.member.dao.MemberDaoInterface;
@@ -18,6 +19,9 @@ public class MemberRegService3 {
 
 	// 자동 메퍼를 이용해서 생성할 dao
 	private MemberDaoInterface dao;
+
+	@Autowired
+	private MailSenderService mailService;
 
 	// 자동 메퍼를 위한 sqlSessionTemplate 객체 주입
 	// @Inject : 타입에 맞는 주입 ( java 에서 지원 : 특정 프레임워크에 의존하지 않음 )
@@ -38,16 +42,25 @@ public class MemberRegService3 {
 		MemberInfo memberInfo = regist.toMemberInfo();
 
 		// 새로운 파일 이름 생성
-		String newFileName = memberInfo.getuserId() + "_" + regist.getUserPhoto().getOriginalFilename();
 
 		int resultCnt = 0;
+		String newFileName = "";
 
 		try {
-			// 파일을 서버 지정 경로에 저장
-			regist.getUserPhoto().transferTo(new File(dir, newFileName));
-			// 데이터베이스 저장을 하기위한 파일 이름을 넣어줌
-			memberInfo.setuserPhoto(newFileName);
+			if (regist.getUserPhoto() != null) {
+				// 새로운 파일 이름 생성
+				// String newFileName = memberInfo.getuId()+System.nanoTime();
+				newFileName = memberInfo.getuserId() + "_" + regist.getUserPhoto().getOriginalFilename();
+				// 파일을 서버의 지정 경로에 저장
+				regist.getUserPhoto().transferTo(new File(dir, newFileName));
+				// 데이터베이스 저장을 하기위한 파일 이름 set
+				memberInfo.setuserPhoto(newFileName);
+			}
+
 			resultCnt = dao.insertMember(memberInfo);
+
+			// 메일 발송
+			mailService.send(memberInfo.getuserId(), memberInfo.getCode());
 
 		} catch (IllegalStateException e) {
 			e.printStackTrace();

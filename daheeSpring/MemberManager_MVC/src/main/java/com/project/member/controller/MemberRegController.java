@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.project.member.domain.RequestMemberRegist;
+import com.project.member.service.MailSenderService;
 import com.project.member.service.MemberRegService;
 import com.project.member.service.MemberRegService2;
 import com.project.member.service.MemberRegService3;

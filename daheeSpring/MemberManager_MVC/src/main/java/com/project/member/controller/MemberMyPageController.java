@@ -20,4 +20,10 @@ public class MemberMyPageController {
 	}
 	
 	
+	//interceptor 사용 ( logincheck )
+	@RequestMapping("/member/mypage/mypage")
+	public String mypage2(HttpSession session) {
+		
+		return "member/mypage";
+	}
 }
