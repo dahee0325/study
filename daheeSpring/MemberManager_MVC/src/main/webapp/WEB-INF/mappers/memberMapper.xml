@@ -83,7 +83,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	</select>
 
-
 	<!-- 회원 리스트 : 검색을 위해 동적쿼리 적용 -->
 	<select id="selectList" parameterType="map" resultMap="resultMemberInfo">
 		SELECT * FROM userinfo

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="Creative coming soon template">
+    <meta name="author" content="Hitesh Jariwala">
+    <meta name="keywords" content="">
+    <!-- title -->
+    <title>Avail - Creative Coming Soon Template</title>
+    <!-- CSS IMPORT -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/cont_style.css" type="text/css">
+    <link rel="stylesheet" href="css/cont_demo.css" type="text/css">
+    <!-- support HTML5 elements and media queries for IE9 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var current = 1;
+
+            widget = $(".step");
+            btnnext = $(".next");
+            btnback = $(".back");
+            btnsubmit = $(".submit");
+
+            // Init buttons and UI
+            widget.not(':eq(0)').hide();
+            hideButtons(current);
+            setProgress(current);
+
+            // Next button click action
+            btnnext.click(function() {
+                if (current < widget.length) {
+                    widget.show();
+                    widget.not(':eq(' + (current++) + ')').hide();
+                    setProgress(current);
+                }
+                hideButtons(current);
+            })
+
+            // Back button click action
+            btnback.click(function() {
+                if (current > 1) {
+                    current = current - 2;
+                    btnnext.trigger('click');
+                }
+                hideButtons(current);
+            })
+        });
+
+        // Change progress bar action
+        setProgress = function(currstep) {
+            var percent = parseFloat(100 / widget.length) * currstep;
+            percent = percent.toFixed();
+            $(".progress-bar").css("width", percent + "%").html(percent + "%");
+        }
+
+        // Hide buttons according to the current step
+        hideButtons = function(current) {
+            var limit = parseInt(widget.length);
+
+            $(".action").hide();
+
+            if (current < limit) btnnext.show();
+            if (current > 1) btnback.show();
+            if (current == limit) {
+                btnnext.hide();
+                btnsubmit.show();
+            }
+        }
+    </script>
+    <style>
+        #nav {
+            text-align: center;
+            font-size: 16px;
+            padding: 0;
+            background-color: rgba(239, 239, 239, 0.54);
+        }
+
+        #nav a {
+            display: inline-block;
+            width: 100px;
+            text-decoration: none;
+            color: black;
+        }
+
+        #nav a:hover {
+            background-color: rgba(235, 239, 144, 0.42);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- preloader -->
+    <div class="preloader-container">
+        <div class="content-container">
+            <!-- preloader -->
+            <span class="spinner-section-far"></span>
+            <!-- end preloader -->
+            <h6 class="preloader-text">
+                LOADING</h6>
+        </div>
+    </div>
+    <!-- end preloader -->
+    <!-- page container -->
+    <div class="page-container">
+        <!-- home section -->
+        <div class="home-section" data-stellar-background-ratio="0.5">
+            <div class="home-content is-visible">
+                <!-- text container -->
+                <!-- menu -->
+                <div class="open">
+                    <div class="cls">
+                    </div>
+                    <div>
+                        <ul class="sub-menu-t">
+                            <li class="active"><a class="menu-link" data-section="home" data-nav-title="home" data-section-pos="0" data-section-posy="0">Home <i class="fa fa-fw fa-home"></i>
+                                </a></li>
+                            <li><a class="menu-link" data-section="contact" data-nav-title="contact" data-section-pos="-100" data-section-posy="0">Contact Us<i class="fa fa-fw fa-list"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="cls">
+                    </div>
+                </div>
+                <!-- end menu  -->
+                <div class="container text-container">
+                    <div class="col-sm-12 col-rlt-left col-xs-rlt centering-y text-center">
+                        <img alt="logo" src="img/logo_white.png" class="logo" />
+                        <h4>
+                            Hi, Welcome To</h4>
+                        <h1>
+                            Avail</h1>
+                    </div>
+                </div>
+                <!-- end text container -->
+            </div>
+        </div>
+        <!-- end home section -->
+        <nav id="nav" class="navbar navbar-expand-sm justify-content-center sticky-top">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- demo content -->
+        <div class="demo-content mrg-top-md">
+            <!-- container -->
+            <div class="container">
+                <!-- home variation -->
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <form role="form">
+                        <div class="step well">
+                            <div>
+                                질문 1
+                                <label for="f">여자</label>
+                                <input type="radio" id="f">
+                                <input type="text">
+                            </div>
+                        </div>
+                        <div class="step well">
+                            <label for="usr">Mobile Number:</label>
+                            <input type="text" class="form-control" id="usr">
+                        </div>
+                        <div class="step well">
+                            <div class="form-group">
+                                <label for="email">Email address:</label>
+                                <input type="email" class="form-control" id="email">
+                            </div>
+                        </div>
+                        <div class="step well">
+                            <div class="form-group">
+                                <label for="pwd">Password:</label>
+                                <input type="password" class="form-control" id="pwd">
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd">Retype Password:</label>
+                                <input type="password" class="form-control" id="pwd">
+                            </div>
+                        </div>
+                        <div class="step well">
+                            <div class="form-group">
+                                <label for="pwd">Password:</label>
+                                <input type="password" class="form-control" id="pwd">
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd">Retype Password:</label>
+                                <input type="password" class="form-control" id="pwd">
+                            </div>
+                        </div>
+                        <div class="step well">
+                            <div class="form-group">
+                                <label for="pwd">Password:</label>
+                                <input type="password" class="form-control" id="pwd">
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd">Retype Password:</label>
+                                <input type="password" class="form-control" id="pwd">
+                            </div>
+                        </div>
+                        <input type="submit" class="action submit btn btn-success" value="보내기">
+                    </form>
+                    <button class="action back btn btn-info">Back</button>
+                    <button class="action next btn btn-info">Next</button>
+                </div>
+                <!-- end map -->
+                <!-- end home variation -->
+                <!-- end component -->
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end demo content -->
+        <!-- footer -->
+        <footer class="col-xs-12 col-rlt-left col-height-250 pad-bottom-lg pad-top-lg bg-darkgrey">
+            <div class="col-xs-12 centering-y text-center">
+                <p class="text-small">Copyright &copy; 2016 All Rights Reserved</p>
+                <p class="text-uppercase"><a href="http://themeforest.net/user/hitjariwala/portfolio" class="link-1 text-lightgrey">Hitesh Jariwala</a></p>
+            </div>
+        </footer>
+        <!-- end footer -->
+    </div>
+    <!-- end page container -->
+    <!-- javascript import -->
+    <!-- jquery -->
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <!-- bootstrap -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- backstretch -->
+    <script type="text/javascript" src="js/plugins.min.js"></script>
+    <!-- main js -->
+    <script type="text/javascript" src="js/demo.js"></script>
+    <script type="text/javascript" src="js/main_constellation.js"></script>
+</body>
+
+</html>

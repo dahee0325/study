@@ -32,3 +32,4 @@ where idx=20;
 select upw, convert(aes_decrypt(UNHEX(upw), 'password') using utf8) as upw
 from userinfo
 where idx=25;
+

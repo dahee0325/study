@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -107,7 +108,7 @@ input {
 			list();
 			
 			 $('#editForm').submit(function(){
-  
+
 		            $.ajax({
 		                url : 'http://localhost:8080/member/rest/members/'+$('#idx').val(),
 		                type : 'PUT',
@@ -169,7 +170,6 @@ input {
 				type : 'GET',
 				success : function(data) {
 					//alert(JSON.stringify(data));
-
 					var html = '';
 
 					for (var i = 0; i < data.length; i++) {
