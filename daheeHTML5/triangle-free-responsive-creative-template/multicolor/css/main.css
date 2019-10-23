@@ -754,10 +754,6 @@ ul.sub-menu {
 }
 
 #page-breadcrumb {
-  background-image: url(../images/home/tour-bg.png);
-  background-color: #fbfafa;
-  background-repeat: repeat-x;
-  height: 130px;
   background-position: center;
   display: table;
   position: static;
@@ -1364,7 +1360,7 @@ Portfolio with right sidebar
 }
 
 .popular ul.gallery li a img:hover {
-  border-radius: 60px;
+  border-radius: 50%;
 }
 
 

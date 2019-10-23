@@ -18,29 +18,281 @@
 	    <script src="js/respond.min.js"></script>
     <![endif]-->       
     <link rel="shortcut icon" href="images/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/toti_logo.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/toti_logo.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/toti_logo.png">
+    <link rel="apple-touch-icon-precomposed" href="images/toti_logo.png">
+    <script type="text/javascript" src="js/jquery.js"></script>        
+    <style>
+
+        #request_form_wrap {
+            padding: 30px;
+            width: 800px;
+            margin: auto; 
+            box-shadow:5px 5px 10px 1px #acacac;
+            border-radius: 15px;
+        }
+        
+        
+        #request_form_wrap input[type=radio] {
+            margin: 5px;
+            vertical-align: middle;
+        }
+        
+        #request_form_wrap input[type=checkbox] {
+            margin: 5px;
+            vertical-align: middle;
+        }
+        
+        #request_form_wrap input[type=button] {
+            margin: 10px 0;
+            border: 1px solid #6ed0ed;
+            background-color: #6ed0ed;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+        }
+        
+        #request_form_wrap input[type=button]:hover {
+            border: 1px solid #6ed0ed;
+            background-color: white;
+            color: #333;
+        }
+        
+        #request_form_wrap label {
+            font-weight: normal;
+        }
+        
+        #request_form_wrap p {
+            font-weight: bold;
+            font-size: 18px;
+            padding: 5px 0;
+        }
+        
+        #ww a{
+            display: block;
+            text-decoration: underline;
+        }
+        
+        #ww a:last-child {
+            text-decoration: none;
+            margin-top: 10px;
+        }
+        
+        @charset "UTF-8";
+
+
+#title_wrap {
+	background-color: white;
+	border-radius: 20px;
+	margin-bottom: -300px;
+}
+
+#request_form_wrap {
+	padding: 30px;
+	width: 800px;
+	margin: auto;
+	box-shadow: 5px 5px 10px 1px #acacac;
+	border-radius: 15px;
+}
+
+#request_form_wrap input[type=radio] {
+	margin: 5px;
+	vertical-align: middle;
+}
+
+#request_form_wrap input[type=checkbox] {
+	margin: 5px;
+	vertical-align: middle;
+}
+
+#request_form_wrap label {
+	font-weight: normal;
+}
+
+#request_form_wrap p {
+	font-weight: bold;
+	font-size: 18px;
+	padding: 5px 0;
+}
+
+#cate_select_wrap {
+	padding: 50px 20px;
+}
+
+#cate_select_wrap p {
+	padding: 10px;
+}
+
+#cate_select_wrap i {
+	vertical-align: middle;
+	padding: 8px;
+}
+
+#request_form_wrap input[type=button] {
+	margin: 10px 0;
+	border: 1px solid #6ed0ed;
+	background-color: #6ed0ed;
+	color: white;
+	padding: 10px;
+	width: 100%;
+	border-radius: 5px;
+}
+
+#request_form_wrap input[type=button]:hover {
+	border: 1px solid #6ed0ed;
+	background-color: white;
+	color: #333;
+}
+
+#requsr_my_list {
+	
+	border: 1px solid #d5e8e8;
+	padding: 25px;
+	border-radius: 10px;
+	margin: 10px 0;
+	box-shadow: 1px 1px 8px #d0d0d0;
+	
+}
+
+#requsr_my_list h2 {
+	color: black;
+}
+
+#requsr_my_list a {
+	 display: block;
+     text-decoration: underline;
+}
+
+#requsr_my_list a:last-child {
+	text-decoration: none;
+	margin-top: 15px;
+}
+
+#list_wrap {
+	margin-bottom: 50px; 
+}
+
+#request{
+	border: 1px solid #ededed;
+	margin: 20px auto;
+	width: 50%;
+	padding: 50px;
+	border-radius: 10px;
+	box-shadow: 1px 1px 20px 1px #f2f2f2;	
+}
+
+#est_request {
+	margin: 20px auto;
+	width: 50%;
+	padding: 50px;
+}
+
+#request img, #est_request img {
+	border-radius: 50%;
+	height: 130px;
+	width: 130px;
+	display: inline;
+}
+
+#requesr_user {
+	display: inline-block;
+	width: 70%;
+	padding: 0 0 0 40px;
+}
+
+#requesr_user p {
+	text-align: right
+}
+
+#requesr_user h2 {
+	color: black;
+}
+
+#request_con {
+	padding: 20px 0;
+}
+
+.con_p1 {
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.con_p2 {
+	font-size: 14px;
+}
+
+#estimatee_wrap li {
+	width: 50%; text-align: center;
+}
+
+.est_wrap {
+	border: 1px solid #d8d8d8; border-radius: 15px; padding: 10px; margin: 10px 0;
+}
+
+.est_user {
+	padding: 0 10px;
+}
+
+.est_user_img {
+	float: left; width: auto; padding: 10px 15px 10px 0;
+}
+
+.est_user_img img {
+	width: 80px; height: 80px; border-radius: 50%;
+}
+
+.est_user_info {
+	padding: 10px;
+}
+
+.info_con {
+	font-weight: bold; font-size: 16px;
+    width: 70%;
+    float: left;
+}
+
+.info_name {
+	font-weight: 400; font-size: 15px;
+}
+
+.info_map {
+	font-weight: 400; font-size: 15px;
+}
+
+.est_pay {
+	clear: both;
+}
+
+.est_pay hr {
+	margin: -5px 10px 5px 10px;
+}
+
+.est_pay div {
+	padding: 10px;
+}
+
+.est_pay div span {
+	border: 1px solid #cccccc; border-radius: 5px; padding: 3px;
+}
+
+#not_request {
+	
+	text-align: center; font-size: 16px; border: 1px solid #d4d4d4; border-radius: 10px; padding: 20px;
+	width: 80%;
+	margin: 0 auto;
+	
+}
+
+#not_request a {
+	text-decoration: underline; font-size: 14px;
+}
+    </style>
 </head><!--/head-->
 
 <body>
-	<header id="header">      
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 overflow">
-                   <div class="social-icons pull-right">
-                        <ul class="nav nav-pills">
-                            <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                            <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                            <li><a href=""><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href=""><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href=""><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
-                    </div> 
-                </div>
-             </div>
-        </div>
+	<header id="header">
         <div class="navbar navbar-inverse" role="banner">
             <div class="container">
                 <div class="navbar-header">
@@ -50,54 +302,67 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-
+                    <!-- logo -->
                     <a class="navbar-brand" href="index.html">
-                        <h1><img src="images/logo.png" alt="logo"></h1>
+                    	<h1><img height="80" src="images/toti_logo.png" alt="logo"></h1>
                     </a>
-                    
                 </div>
+                <!-- nav -->
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="index.html">Home</a></li>
-                        <li class="dropdown"><a href="#">Pages <i class="fa fa-angle-down"></i></a>
+                        <!-- 로그인전 nav-->
+                        <li><a href="index.html">분야선택</a></li>
+                        <li><a href="index.html">멘토찾기</a></li>
+                        <li><a href="index.html">로그인</a></li>
+                        <li class="active"><a href="index.html">회원가입</a></li>
+                        
+                        <!-- 멘티 로그인 -->
+                        <!--
+                        <li><a href="index.html">분야선택</a></li>
+                        <li><a href="index.html">보낸요청</a></li>
+                        <li><a href="index.html">채팅</a></li>
+                        <li><a href="index.html">멘토찾기</a></li>
+                        <li class="dropdown"><a href="#">OO 멘티님<i class="fa fa-angle-down"></i></a>
                             <ul role="menu" class="sub-menu">
-                                <li><a href="aboutus.html">About</a></li>
-                                <li><a href="aboutus2.html">About 2</a></li>
-                                <li><a href="service.html">Services</a></li>
-                                <li><a href="pricing.html">Pricing</a></li>
-                                <li><a href="contact.html">Contact us</a></li>
-                                <li><a href="contact2.html">Contact us 2</a></li>
-                                <li><a href="404.html">404 error</a></li>
-                                <li><a href="coming-soon.html">Coming Soon</a></li>
-                            </ul>
-                        </li>                    
-                        <li class="dropdown active"><a href="blog.html">Blog <i class="fa fa-angle-down"></i></a>
-                            <ul role="menu" class="sub-menu">
-                                <li><a href="blogtwo.html">Timeline Blog</a></li>
-                                <li><a href="blogone.html">2 Columns + Right Sidebar</a></li>
-                                <li><a href="blogthree.html">1 Column + Left Sidebar</a></li>
-                                <li><a class="active" href="blogfour.html">Blog Masonary</a></li>
-                                <li><a href="blogdetails.html">Blog Details</a></li>
+                               <li style="padding: 5px 0 10px 15px">
+                                  <div>
+                                       안녕하세요, OO님
+                                  </div>
+                                </li>
+                                <li><a href="aboutus.html">보낸요청</a></li>
+                                <li><a href="aboutus2.html">설정</a></li>
+                                <hr>
+                                <li><a href="service.html">멘토로 전환</a></li>
+                                <li><a href="pricing.html">로그아웃</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown"><a href="portfolio.html">Portfolio <i class="fa fa-angle-down"></i></a>
+                        
+                        <!-- 멘토 로그인 -->
+                        <!--
+                        <li><a href="index.html">받은요청</a></li>
+                        <li><a href="index.html">채팅</a></li>
+                        <li><a href="index.html">프로필</a></li>
+                        <li class="dropdown"><a href="#">OO 멘토님<i class="fa fa-angle-down"></i></a>
                             <ul role="menu" class="sub-menu">
-                                <li><a href="portfolio.html">Portfolio Default</a></li>
-                                <li><a href="portfoliofour.html">Isotope 3 Columns + Right Sidebar</a></li>
-                                <li><a href="portfolioone.html">3 Columns + Right Sidebar</a></li>
-                                <li><a href="portfoliotwo.html">3 Columns + Left Sidebar</a></li>
-                                <li><a href="portfoliothree.html">2 Columns</a></li>
-                                <li><a href="portfolio-details.html">Portfolio Details</a></li>
+                               <li style="padding: 5px 0 10px 15px">
+                                   <div>안녕하세요, OO님</div>
+                                   <div>★ 평점 5.0 | 리뷰 1</div>
+                                </li>
+                                <li><a href="aboutus.html">프로필 관리</a></li>
+                                <li><a href="aboutus2.html">설정</a></li>
+                                <hr>
+                                <li><a href="service.html">고객으로 전환</a></li>
+                                <li><a href="pricing.html">로그아웃</a></li>
                             </ul>
-                        </li>                         
-                        <li><a href="shortcodes.html ">Shortcodes</a></li>                    
+                        </li>
+                        -->
                     </ul>
                 </div>
                 <div class="search">
                     <form role="form">
                         <i class="fa fa-search"></i>
                         <div class="field-toggle">
-                            <input type="text" class="search-form" autocomplete="off" placeholder="Search">
+                            <input style="font-size: 13px; width: 250px" type="text" class="search-form" autocomplete="off" placeholder="원하는 분야를 검색하세요.">
                         </div>
                     </form>
                 </div>
@@ -105,302 +370,83 @@
         </div>
     </header>
     <!--/#header-->
-
-
     <section id="page-breadcrumb">
         <div class="vertical-center sun">
-             <div class="container">
-                <div class="row">
-                    <div class="action">
-                        <div class="col-sm-12">
-                            <h1 class="title">Blog</h1>
-                            <p>Blog with left sidebar</p>
-                        </div>
-                    </div>
-                </div>
+             <div class="container" style="background-color: white; border-radius: 20px; margin-bottom: -300px">
+                <h1>보낸 요청서</h1>
             </div>
         </div>
-    </section>
+   </section>
     <!--/#action-->
     
     <section id="blog" class="padding-top padding-bottom">
         <div class="container">
             <div class="row">
-                <div class="masonery_area">
-                    <div class="col-md-3 col-sm-4">
-                        <div class="single-blog two-column">
-                            <div class="post-thumb">
-                                <a href="blogdetails.html"><img src="images/blog/masonary/1.jpg" class="img-responsive" alt=""></a>
-                                <div class="post-overlay">
-                                    <span class="uppercase"><a href="#">14 <br><small>Feb</small></a></span>
-                                </div>
-                            </div>
-                            <div class="post-content overflow">
-                                <ul class="nav nav-justified post-nav">
-                                    <li><a href="#"><i class="fa fa-tag"></i>Creative</a></li>
-                                </ul>
-                                <h2 class="post-title bold"><a href="blogdetails.html">Advanced business cards design</a></h2>
-                                <h3 class="post-author"><a href="#">Posted by micron News</a></h3>
-                                <p>Duis autem vel eum iriure dolor in hendrerit in blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber [...]</p>
-                                <a href="#" class="read-more">View More</a>
-                                <div class="post-bottom overflow">
-                                    <ul class="nav nav-justified post-nav">
-                                        <li><a href="#"><i class="fa fa-heart"></i>32 Love</a></li>
-                                        <li><a href="#"><i class="fa fa-comments"></i>3 Comments</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                   <div class="col-md">
+                    <div id="cate_select_wrap">
+                         <a href="#"><i class="fa fa-chevron-left" style=""></i><span>이전으로</span></a>
                     </div>
-                    <div class="col-md-3 col-sm-4">
-                        <div class="single-blog two-column">
-                            <div class="post-thumb">
-                                <audio src="audio/juicy.mp3" preload="auto"></audio>
-                            </div>
-                            <div class="post-content overflow">
-                                <ul class="nav nav-justified post-nav">
-                                    <li><a href="#"><i class="fa fa-tag"></i>Creative</a></li>
-                                    <li><a href="#"><i class="fa fa-clock-o"></i>14 Feb</a></li>
-                                </ul>
-                                <h2 class="post-title bold"><a href="blogdetails.html">Advanced business cards design</a></h2>
-                                <h3 class="post-author"><a href="#">Posted by micron News</a></h3>
-                                <p>Duis autem vel eum iriure dolor in hendrerit in blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber [...]</p>
-                                <a href="#" class="read-more">View More</a>
-                                <div class="post-bottom overflow">
-                                    <ul class="nav nav-justified post-nav">
-                                        <li><a href="#"><i class="fa fa-heart"></i>32 Love</a></li>
-                                        <li><a href="#"><i class="fa fa-comments"></i>3 Comments</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-4">
-                        <div class="single-blog two-column">
-                            <div class="post-thumb">
-                                <a href="blogdetails.html"><img src="images/blog/masonary/6.jpg" class="img-responsive" alt=""></a>
-                                <div class="post-overlay">
-                                    <span class="uppercase"><a href="#">14 <br><small>Feb</small></a></span>
-                                </div>
-                            </div>
-                            <div class="post-content overflow">
-                                <ul class="nav nav-justified post-nav">
-                                    <li><a href="#"><i class="fa fa-tag"></i>Creative</a></li>
-                                </ul>
-                                <h2 class="post-title bold"><a href="blogdetails.html">Advanced business cards design</a></h2>
-                                <h3 class="post-author"><a href="#">Posted by micron News</a></h3>
-                                <p>Duis autem vel eum iriure dolor in hendrerit in blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber [...]</p>
-                                <a href="#" class="read-more">View More</a>
-                                <div class="post-bottom overflow">
-                                    <ul class="nav nav-justified post-nav">
-                                        <li><a href="#"><i class="fa fa-heart"></i>32 Love</a></li>
-                                        <li><a href="#"><i class="fa fa-comments"></i>3 Comments</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-4">
-                        <div class="single-blog two-column">
-                            <div class="post-thumb">
-                                <a href="blogdetails.html"><img src="images/blog/masonary/8.jpg" class="img-responsive" alt=""></a>
-                                <div class="post-overlay">
-                                    <span class="uppercase"><a href="#">14 <br><small>Feb</small></a></span>
-                                </div>
-                            </div>
-                            <div class="post-content overflow">
-                                <ul class="nav nav-justified post-nav">
-                                    <li><a href="#"><i class="fa fa-tag"></i>Creative</a></li>
-                                </ul>
-                                <h2 class="post-title bold"><a href="blogdetails.html">Advanced business cards design</a></h2>
-                                <h3 class="post-author"><a href="#">Posted by micron News</a></h3>
-                                <p>Duis autem vel eum iriure dolor in hendrerit in blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber [...]</p>
-                                <a href="#" class="read-more">View More</a>
-                                <div class="post-bottom overflow">
-                                    <ul class="nav nav-justified post-nav">
-                                        <li><a href="#"><i class="fa fa-heart"></i>32 Love</a></li>
-                                        <li><a href="#"><i class="fa fa-comments"></i>3 Comments</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-4">
-                        <div class="single-blog two-column">
-                            <div class="post-thumb">
-                                <a href="blogdetails.html"><img src="images/blog/masonary/4.jpg" class="img-responsive" alt=""></a>
-                                <div class="post-overlay">
-                                    <span class="uppercase"><a href="#">14 <br><small>Feb</small></a></span>
-                                </div>
-                            </div>
-                            <div class="post-content overflow">
-                                <ul class="nav nav-justified post-nav">
-                                    <li><a href="#"><i class="fa fa-tag"></i>Creative</a></li>
-                                </ul>
-                                <h2 class="post-title bold"><a href="blogdetails.html">Advanced business cards design</a></h2>
-                                <h3 class="post-author"><a href="#">Posted by micron News</a></h3>
-                                <p>Duis autem vel eum iriure dolor in hendrerit in blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber [...]</p>
-                                <a href="#" class="read-more">View More</a>
-                                <div class="post-bottom overflow">
-                                    <ul class="nav nav-justified post-nav">
-                                        <li><a href="#"><i class="fa fa-heart"></i>32 Love</a></li>
-                                        <li><a href="#"><i class="fa fa-comments"></i>3 Comments</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-4">
-                        <div class="single-blog two-column">
-                            <div class="post-thumb">
-                                <audio src="audio/juicy.mp3" preload="auto"></audio>
-                            </div>
-                            <div class="post-content overflow">
-                                <ul class="nav nav-justified post-nav">
-                                    <li><a href="#"><i class="fa fa-tag"></i>Creative</a></li>
-                                    <li><a href="#"><i class="fa fa-clock-o"></i>14 Feb</a></li>
-                                </ul>
-                                <h2 class="post-title bold"><a href="blogdetails.html">Advanced business cards design</a></h2>
-                                <h3 class="post-author"><a href="#">Posted by micron News</a></h3>
-                                <p>Duis autem vel eum iriure dolor in hendrerit in blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber [...]</p>
-                                <a href="#" class="read-more">View More</a>
-                                <div class="post-bottom overflow">
-                                    <ul class="nav nav-justified post-nav">
-                                        <li><a href="#"><i class="fa fa-heart"></i>32 Love</a></li>
-                                        <li><a href="#"><i class="fa fa-comments"></i>3 Comments</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-4">
-                        <div class="single-blog two-column">
-                            <div class="post-thumb">
-                                <a href="blogdetails.html"><img src="images/blog/masonary/2.jpg" class="img-responsive" alt=""></a>
-                                <div class="post-overlay">
-                                    <span class="uppercase"><a href="#">14 <br><small>Feb</small></a></span>
-                                </div>
-                            </div>
-                            <div class="post-content overflow">
-                                <ul class="nav nav-justified post-nav">
-                                    <li><a href="#"><i class="fa fa-tag"></i>Creative</a></li>
-                                </ul>
-                                <h2 class="post-title bold"><a href="blogdetails.html">Advanced business cards design</a></h2>
-                                <h3 class="post-author"><a href="#">Posted by micron News</a></h3>
-                                <p>Duis autem vel eum iriure dolor in hendrerit in blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber [...]</p>
-                                <a href="#" class="read-more">View More</a>
-                                <div class="post-bottom overflow">
-                                    <ul class="nav nav-justified post-nav">
-                                        <li><a href="#"><i class="fa fa-heart"></i>32 Love</a></li>
-                                        <li><a href="#"><i class="fa fa-comments"></i>3 Comments</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-4">
-                        <div class="single-blog two-column">
-                            <div class="post-thumb">
-                                <a href="blogdetails.html"><img src="images/blog/masonary/10.jpg" class="img-responsive" alt=""></a>
-                                <div class="post-overlay">
-                                    <span class="uppercase"><a href="#">14 <br><small>Feb</small></a></span>
-                                </div>
-                            </div>
-                            <div class="post-content overflow">
-                                <ul class="nav nav-justified post-nav">
-                                    <li><a href="#"><i class="fa fa-tag"></i>Creative</a></li>
-                                </ul>
-                                <h2 class="post-title bold"><a href="blogdetails.html">Advanced business cards design</a></h2>
-                                <h3 class="post-author"><a href="#">Posted by micron News</a></h3>
-                                <p>Duis autem vel eum iriure dolor in hendrerit in blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber [...]</p>
-                                <a href="#" class="read-more">View More</a>
-                                <div class="post-bottom overflow">
-                                    <ul class="nav nav-justified post-nav">
-                                        <li><a href="#"><i class="fa fa-heart"></i>32 Love</a></li>
-                                        <li><a href="#"><i class="fa fa-comments"></i>3 Comments</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-4">
-                        <div class="single-blog two-column">
-                            <div class="post-thumb">
-                                <a href="blogdetails.html"><img src="images/blog/masonary/7.jpg" class="img-responsive" alt=""></a>
-                                <div class="post-overlay">
-                                    <span class="uppercase"><a href="#">14 <br><small>Feb</small></a></span>
-                                </div>
-                            </div>
-                            <div class="post-content overflow">
-                                <ul class="nav nav-justified post-nav">
-                                    <li><a href="#"><i class="fa fa-tag"></i>Creative</a></li>
-                                </ul>
-                                <h2 class="post-title bold"><a href="blogdetails.html">Advanced business cards design</a></h2>
-                                <h3 class="post-author"><a href="#">Posted by micron News</a></h3>
-                                <p>Duis autem vel eum iriure dolor in hendrerit in blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber [...]</p>
-                                <a href="#" class="read-more">View More</a>
-                                <div class="post-bottom overflow">
-                                    <ul class="nav nav-justified post-nav">
-                                        <li><a href="#"><i class="fa fa-heart"></i>32 Love</a></li>
-                                        <li><a href="#"><i class="fa fa-comments"></i>3 Comments</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-4">
-                        <div class="single-blog two-column">
-                            <div class="post-thumb">
-                                <a href="blogdetails.html"><img src="images/blog/masonary/5.jpg" class="img-responsive" alt=""></a>
-                                <div class="post-overlay">
-                                    <span class="uppercase"><a href="#">14 <br><small>Feb</small></a></span>
-                                </div>
-                            </div>
-                            <div class="post-content overflow">
-                                <ul class="nav nav-justified post-nav">
-                                    <li><a href="#"><i class="fa fa-tag"></i>Creative</a></li>
-                                </ul>
-                                <h2 class="post-title bold"><a href="blogdetails.html">Advanced business cards design</a></h2>
-                                <h3 class="post-author"><a href="#">Posted by micron News</a></h3>
-                                <p>Duis autem vel eum iriure dolor in hendrerit in blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber [...]</p>
-                                <a href="#" class="read-more">View More</a>
-                                <div class="post-bottom overflow">
-                                    <ul class="nav nav-justified post-nav">
-                                        <li><a href="#"><i class="fa fa-heart"></i>32 Love</a></li>
-                                        <li><a href="#"><i class="fa fa-comments"></i>3 Comments</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-4">
-                        <div class="single-blog two-column">
-                            <div class="post-thumb">
-                                <a href="blogdetails.html"><img src="images/blog/masonary/9.jpg" class="img-responsive" alt=""></a>
-                                <div class="post-overlay">
-                                    <span class="uppercase"><a href="#">14 <br><small>Feb</small></a></span>
-                                </div>
-                            </div>
-                            <div class="post-content overflow">
-                                <ul class="nav nav-justified post-nav">
-                                    <li><a href="#"><i class="fa fa-tag"></i>Creative</a></li>
-                                </ul>
-                                <h2 class="post-title bold"><a href="blogdetails.html">Advanced business cards design</a></h2>
-                                <h3 class="post-author"><a href="#">Posted by micron News</a></h3>
-                                <p>Duis autem vel eum iriure dolor in hendrerit in blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber [...]</p>
-                                <a href="#" class="read-more">View More</a>
-                                <div class="post-bottom overflow">
-                                    <ul class="nav nav-justified post-nav">
-                                        <li><a href="#"><i class="fa fa-heart"></i>32 Love</a></li>
-                                        <li><a href="#"><i class="fa fa-comments"></i>3 Comments</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="card-columns">
+  <div class="card bg-primary">
+    <div class="card-body text-center">
+      <p class="card-text">Some text inside the first card</p>
+    </div>
+  </div>
+  <div class="card bg-warning">
+    <div class="card-body text-center">
+      <p class="card-text">Some text inside the second card</p>
+    </div>
+  </div>
+  <div class="card bg-success">
+    <div class="card-body text-center">
+      <p class="card-text">Some text inside the third card</p>
+    </div>
+  </div>
+  <div class="card bg-danger">
+    <div class="card-body text-center">
+      <p class="card-text">Some text inside the fourth card</p>
+    </div>
+  </div>
+  <div class="card bg-light">
+    <div class="card-body text-center">
+      <p class="card-text">Some text inside the fifth card</p>
+    </div>
+  </div>
+  <div class="card bg-info">
+    <div class="card-body text-center">
+      <p class="card-text">Some text inside the sixth card</p>
+    </div>
+  </div>
+</div>
+                    
+                     <div class="est_wrap"><input type="hidden" value="'+data.estiData[i].mento_idx+'">
+								<div class="est_user"><div class="est_user_img">
+								<img src="images/cate/Vocal_img.jpg"></div>
+								<div class="est_user_info">
+								<p class="info_con">안녕들</p>
+								<p style="width: 20%;">2019-10-10</p>
+								<p class="info_name">이름 <i class="fa fa-star"></i>4.5(5개)</p>
+								<p class="info_map">서울</p></div></div>
+								<div class="est_pay"><hr><div><span>예상금액</span> 100원
+								</div></div></div>
+                      
+                       <div style="border: 1px solid #ededed; margin: 20px auto; width: 70%; padding: 50px; border-radius: 10px; box-shadow: 2px 2px 30px 5px #dddddd;">
+                           <div style="padding: 0 0 0 40px; margin: 0; text-align: center">
+                                <p style="text-align: right">2019-22-22</p>
+                                <img src="images/logo.png" height="130px" width="130px" style="border-radius: 50%;">
+                                <h2 style="color: black;">분야명(서비스명)</h2>
+                                <h3>OO님</h3>
+                           </div>
+                           <div style="padding: 20px 0;">
+                               <p style="font-weight: bold; font-size: 20px">질문이에여ㅕㅕㅕㅕㅕ</p>
+                               <p style="font-size: 17px;">답변잉에여ㅕㅕㅕㅕㅕㅕㅕㅕㅕㅕㅕ</p>
+                                <p style="font-weight: bold; font-size: 20px">질문이에여ㅕㅕㅕㅕㅕ</p>
+                               <p style="font-size: 17px;">답변잉에여ㅕㅕㅕㅕㅕㅕㅕㅕㅕㅕㅕ</p>
+                           </div>
+                       </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
     <!--/#blog-->
 
@@ -410,70 +456,10 @@
                 <div class="col-sm-12 text-center bottom-separator">
                     <img src="images/home/under.png" class="img-responsive inline" alt="">
                 </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="testimonial bottom">
-                        <h2>Testimonial</h2>
-                        <div class="media">
-                            <div class="pull-left">
-                                <a href="#"><img src="images/home/profile1.png" alt=""></a>
-                            </div>
-                            <div class="media-body">
-                                <blockquote>Nisi commodo bresaola, leberkas venison eiusmod bacon occaecat labore tail.</blockquote>
-                                <h3><a href="#">- Jhon Kalis</a></h3>
-                            </div>
-                         </div>
-                        <div class="media">
-                            <div class="pull-left">
-                                <a href="#"><img src="images/home/profile2.png" alt=""></a>
-                            </div>
-                            <div class="media-body">
-                                <blockquote>Capicola nisi flank sed minim sunt aliqua rump pancetta leberkas venison eiusmod.</blockquote>
-                                <h3><a href="">- Abraham Josef</a></h3>
-                            </div>
-                        </div>   
-                    </div> 
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="contact-info bottom">
-                        <h2>Contacts</h2>
-                        <address>
-                        E-mail: <a href="mailto:someone@example.com">email@email.com</a> <br> 
-                        Phone: +1 (123) 456 7890 <br> 
-                        Fax: +1 (123) 456 7891 <br> 
-                        </address>
-
-                        <h2>Address</h2>
-                        <address>
-                        Unit C2, St.Vincent's Trading Est., <br> 
-                        Feeder Road, <br> 
-                        Bristol, BS2 0UY <br> 
-                        United Kingdom <br> 
-                        </address>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-12">
-                    <div class="contact-form bottom">
-                        <h2>Send a message</h2>
-                        <form id="main-contact-form" name="contact-form" method="post" action="sendemail.php">
-                            <div class="form-group">
-                                <input type="text" name="name" class="form-control" required="required" placeholder="Name">
-                            </div>
-                            <div class="form-group">
-                                <input type="email" name="email" class="form-control" required="required" placeholder="Email Id">
-                            </div>
-                            <div class="form-group">
-                                <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Your text here"></textarea>
-                            </div>                        
-                            <div class="form-group">
-                                <input type="submit" name="submit" class="btn btn-submit" value="Submit">
-                            </div>
-                        </form>
-                    </div>
-                </div>
                 <div class="col-sm-12">
                     <div class="copyright-text text-center">
-                        <p>&copy; Your Company 2014. All Rights Reserved.</p>
-                        <p>Designed by <a target="_blank" href="http://www.themeum.com">Themeum</a></p>
+                        <p>&copy; TOTI Company 2019.</p>
+                        <p>TOTI <a target="_blank" href="https://github.com/son9zuen/TOTI/tree/master">Git Hub Page</a></p>
                     </div>
                 </div>
             </div>
@@ -486,13 +472,6 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/lightbox.min.js"></script>
     <script type="text/javascript" src="js/wow.min.js"></script>
-    <script type="text/javascript" src="js/audio.min.js"></script>
-    <script>
-      audiojs.events.ready(function() {
-        var as = audiojs.createAll();
-      });
-    </script>
-    <script type="text/javascript" src="js/masonry.min.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>    
+    <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
